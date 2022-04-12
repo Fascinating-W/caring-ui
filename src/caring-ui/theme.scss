@@ -1,0 +1,67 @@
+$c-main-color: #303133;
+$c-content-color: #606266;
+$c-tips-color: #909399;
+$c-light-color: #c0c4cc;
+$c-border-color: #e4e7ed;
+$c-bg-color: #f3f4f6;
+$c-disabled-color: #c8c9cc;
+
+$c-primary: #2979ff;
+$c-primary-light: #ecf5ff;
+$c-primary-disabled: #a0cfff;
+$c-primary-dark: #2b85e4;
+
+$c-warning: #ff9900;
+$c-warning-disabled: #fcbd71;
+$c-warning-dark: #f29100;
+$c-warning-light: #fdf6ec;
+
+$c-success: #19be6b;
+$c-success-disabled: #71d5a1;
+$c-success-dark: #18b566;
+$c-success-light: #dbf1e1;
+
+$c-error: #fa3534;
+$c-error-disabled: #fab6b6;
+$c-error-dark: #dd6161;
+$c-error-light: #fef0f0;
+
+$c-info: #909399;
+$c-info-disabled: #c8c9cc;
+$c-info-dark: #82848a;
+$c-info-light: #f4f4f5;
+
+:export {
+	main: $c-main-color;
+	content:$c-content-color;
+	tips: $c-tips-color;
+	light: $c-light-color;
+	border: $c-border-color;
+	bg: $c-bg-color;
+	disable: $c-disabled-color;
+	
+	primary: $c-primary;
+	primaryDark: $c-primary-dark;
+	primaryDisabled: $c-primary-disabled;
+	primaryLight: $c-primary-light;
+	
+	warning: $c-warning;
+	warningDark: $c-warning-dark;
+	warningDisabled: $c-warning-disabled;
+	warningLight: $c-warning-light;
+	
+	success: $c-success;
+	successDark: $c-success-dark;
+	successDisabled: $c-success-disabled;
+	successLight: $c-success-light;
+	
+	error: $c-error;
+	errorDark: $c-error-dark;
+	errorDisabled: $c-error-disabled;
+	errorLight: $c-error-light;
+	
+	info: $c-info;
+	infoDark: $c-info-dark;
+	infoDisabled: $c-info-disabled;
+	infoLight: $c-info-light;
+}

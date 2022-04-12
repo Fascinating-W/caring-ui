@@ -1,17 +1,24 @@
 <script>
 	export default {
-		onLaunch: function() {
-			console.log('App Launch')
+		onLaunch () {
+			console.log('App Launchsss')
 		},
-		onShow: function() {
+		onShow () {
 			console.log('App Show')
 		},
-		onHide: function() {
+		onHide () {
 			console.log('App Hide')
 		}
 	}
 </script>
-
-<style>
-	/*每个页面公共css */
+<style lang="scss">
+/*每个页面公共css */
+@import './caring-ui/index.scss';
+@import "./uview-ui/index.scss";
+page {
+  height: 100%;
+}
+.page {
+  height: 100%;
+}
 </style>

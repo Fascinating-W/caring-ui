@@ -1,9 +1,67 @@
 {
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue",
+		"^caring-(.*)": "@/caring-ui/components/caring-$1/caring-$1.vue"
+	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/index/index",
+			"path": "pages/tabbar/components",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "组件"
+			}
+		},
+		{
+			"path": "pages/tabbar/js",
+			"style": {
+				"navigationBarTitleText": "工具"
+			}
+		},
+		{
+			"path": "pages/tabbar/template",
+			"style": {
+				"navigationBarTitleText": "模版"
+			}
+		},
+		{
+			"path": "pages/components/section",
+			"style": {
+				"navigationBarTitleText": "section"
+			}
+		},
+		{
+			"path": "pages/components/icon",
+			"style": {
+				"navigationBarTitleText": "icon"
+			}
+		},
+		{
+			"path": "pages/components/line",
+			"style": {
+				"navigationBarTitleText": "line"
+			}
+		},
+		{
+			"path": "pages/components/color",
+			"style": {
+				"navigationBarTitleText": "color"
+			}
+		},
+		{
+			"path": "pages/components/loading",
+			"style": {
+				"navigationBarTitleText": "loading"
+			}
+		},
+		{
+			"path": "pages/components/title",
+			"style": {
+				"navigationBarTitleText": "title"
+			}
+		},
+		{
+			"path": "pages/components/nodata",
+			"style": {
+				"navigationBarTitleText": "nodata"
 			}
 		}
 	],
@@ -12,5 +70,31 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#909399",
+		"selectedColor": "#303133",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "black",
+		"list": [
+			{
+				"pagePath": "pages/tabbar/components",
+				"iconPath": "static/tabbar/component.png",
+				"selectedIconPath": "static/tabbar/component_select.png",
+				"text": "组件"
+			},
+			{
+				"pagePath": "pages/tabbar/js",
+				"iconPath": "static/tabbar/js.png",
+				"selectedIconPath": "static/tabbar/js_select.png",
+				"text": "工具"
+			},
+			{
+				"pagePath": "pages/tabbar/template",
+				"iconPath": "static/tabbar/template.png",
+				"selectedIconPath": "static/tabbar/template_select.png",
+				"text": "模板"
+			}
+		]
 	}
 }
