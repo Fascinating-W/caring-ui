@@ -1,9 +1,9 @@
 <template>
-  <div class="padding">
+  <div class="p">
     <div v-for="(i, index) in colors" :key="index">
       <u-section :title="i.title" :right="false" />
-      <div class="flex-center p-y-10">
-        <div class="flex-1 p-10 " v-for="(j,index2) in i.item" :key="index2"
+      <div class="flex-center py">
+        <div class="flex-1 p " v-for="(j,index2) in i.item" :key="index2"
         :style="{background: j.color}"
         @click="handleClick(j)"
         >

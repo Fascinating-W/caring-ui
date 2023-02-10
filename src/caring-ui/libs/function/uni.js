@@ -1,5 +1,12 @@
+/*
+ * @Author: Wanko
+ * @Date: 2022-04-06 10:43:39
+ * @LastEditors: Wanko
+ * @LastEditTime: 2022-11-21 17:00:13
+ * @Description: 对uniAPI的二次封装
+ */
 
-// 对uniAPI的二次封装
+
 function showModal (option = {}) {
   const { title = '提示', content = 'content内容', showCancel = true, cancelText = '取消', confirmText = '确定', confirmColor = uni.$c.color.primary } = option
   return new Promise((resolve, reject) => {
@@ -28,18 +35,27 @@ function showLoading (title = '数据加载中') {
     mask: true
   })
 }
+
 function hideLoading () {
   uni.hideLoading()
 }
 
 /**
-   * @description 设置navBar的标题
-   */
+ * @Description: 设置navBar的标题
+ * @param {*} title
+ * @return {*}
+ */
 function setTitle (title) {
   uni.setNavigationBarTitle({
     title
   })
 }
+
+/**
+ * @Description: 粘贴板
+ * @param {*} data
+ * @return {*}
+ */
 function setClipboardData (data) {
   return new Promise((resolve) => {
     uni.setClipboardData({
@@ -51,6 +67,12 @@ function setClipboardData (data) {
   })
 }
 
+/**
+ * @Description: toast轻提示
+ * @param {*} title
+ * @param {*} duration
+ * @return {*}
+ */
 function toast (title = '未知错误信息', duration = 1000) {
   if (title.length <= 20) {
     uni.showToast({

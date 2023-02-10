@@ -1,3 +1,10 @@
+/*
+ * @Author: Wanko
+ * @Date: 2022-04-06 10:43:39
+ * @LastEditors: Wanko
+ * @LastEditTime: 2023-02-10 11:27:11
+ * @Description: 
+ */
 import config from './libs/config'
 // 全局mixin
 import mixin from './libs/mixin'
@@ -12,23 +19,32 @@ import props from './libs/config/props.js'
 import index from './libs/function/index.js'
 
 // uniAPI二次封装方法
-import utils from './libs/function/utils'
+import uniApi from './libs/function/uni.js'
 
 // 防抖方法
 import debounce from './libs/function/debounce.js'
 // 节流方法
 import throttle from './libs/function/throttle.js'
 
+// 路由方法
+import route from './libs/function/route'
+
 import color from './theme.scss'
+
+import request from './libs/request'
+
 const $c = {
   ...index,
   config,
   is,
   props,
   color,
-  ...utils,
+  ...uniApi,
   debounce,
-  throttle
+  throttle,
+
+  route,
+  request
 }
 
 // $u挂载到uni对象上

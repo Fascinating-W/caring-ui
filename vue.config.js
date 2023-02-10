@@ -1,3 +1,3 @@
 module.exports = {
-  transpileDependencies: ['uview-ui', 'caring-view']
+  transpileDependencies: ['uview-ui', 'caring-ui']
 }

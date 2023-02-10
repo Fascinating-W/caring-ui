@@ -1,70 +1,78 @@
+<!--
+ * @Author: Wanko
+ * @Date: 2022-04-06 10:45:37
+ * @LastEditors: Wanko
+ * @LastEditTime: 2022-12-03 17:09:15
+ * @Description: 
+-->
 <template>
-  <div class="page bg-f8">
-    <u-cell-group title="基础组件">
-      <u-cell-item title="颜色" @click="$c.route('/pages/components/color')"></u-cell-item>
-      <u-cell-item title="caring-loading" @click="$c.route('/pages/components/loading')"></u-cell-item>
-      <u-cell-item title="caring-title" @click="$c.route('/pages/components/title')"></u-cell-item>
-      <u-cell-item title="caring-nodata" @click="$c.route('/pages/components/nodata')"></u-cell-item>
-    </u-cell-group>
-    	<u-alert-tips type="warning" :title="title" show-icon></u-alert-tips>
-
-      <view class="bg-white margin padding radius shadow hover">
-        aaaa
-      </view>
-      <view class="bg-white margin padding radius shadow">
-        aaaa
-      </view>
-    <view class="bg-white padding flex">
-      <view class="bg-blue">元素1</view>
-      <view class="bg-red">元素2</view>
-      <view class="bg-purple">元素3</view>
-
-    </view>
-
-    
+  <div class="h-screen bg-f8">
+    <div class="grid"></div>
+    <div
+      v-for="(i, index) in list"
+      :key="index"
+      class="m p bg-white flex justify-between rounded clearfix"
+      @click="$c.route(i.path)"
+    >
+      <span>{{ i.title }}</span>
+      <c-icon name="arrow-right" class="c-primary" color="primary"></c-icon>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      title: '登高望远',
-			description: '欲穷千里目，更上一层楼',
       list: [
         {
-          groupName: '布局组件',
-          list: [
-            {
-              path: '/pages/components/line',
-              icon: 'line',
-              title: 'Line 线条',
-            }
-          ]
+          path: '/pages/components/color',
+          icon: 'line',
+          title: '颜色'
         },
         {
-          groupName: '导航组件',
-          list: [
-            {
-              path: '/pages/components/section',
-              icon: 'section',
-              title: 'Section 查看更多',
-            }
-          ]
+          path: '/pages/components/icon',
+          title: 'icon'
+        },
+        {
+          path: '/pages/components/line',
+          title: 'line'
+        },
+        {
+          path: '/pages/components/gap',
+          title: 'gap'
+        },
+        {
+          path: '/pages/components/loading',
+          title: 'loading'
+        },
+        {
+          path: '/pages/components/empty',
+          title: 'empty'
+        },
+        {
+          path: '/pages/components/image',
+          title: 'image'
+        },
+        {
+          path: '/pages/components/section',
+          title: 'section'
         }
       ]
     }
   },
-  onLoad () {
-
+  onLoad() {
+    console.log(this.$c.color)
   },
   methods: {
+    clickImg() {
+      console.log('1111')
+    },
     modal() {
       this.$c.showModal()
     }
-  },
+  }
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

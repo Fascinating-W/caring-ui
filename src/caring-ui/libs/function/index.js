@@ -191,7 +191,7 @@ function deepClone (obj) {
 }
 
 // JS对象深度合并
-function deepMerge (target = {}, source = {}) {
+export function deepMerge (target = {}, source = {}) {
   target = deepClone(target)
   if (typeof target !== 'object' || typeof source !== 'object') return false
   for (const prop in source) {
@@ -326,7 +326,7 @@ function timeFrom (timestamp = null, format = 'yyyy-mm-dd') {
  * @param {*} data,对象
  * @param {*} isPrefix,是否自动加上"?"
  */
-function queryParams (data = {}, isPrefix = true, arrayFormat = 'brackets') {
+export function queryParams (data = {}, isPrefix = true, arrayFormat = 'brackets') {
   const prefix = isPrefix ? '?' : ''
   const _result = []
   if (['indices', 'brackets', 'repeat', 'comma'].indexOf(arrayFormat) == -1) arrayFormat = 'brackets'
@@ -377,8 +377,6 @@ function queryParams (data = {}, isPrefix = true, arrayFormat = 'brackets') {
   }
   return _result.length ? prefix + _result.join('&') : ''
 }
-
-
 
 /**
  * 根据主题type值,获取对应的图标
@@ -538,32 +536,7 @@ function page () {
   return `/${getCurrentPages()[pages.length - 1].route}`
 }
 
-/**
-   * @description 封装uni路由跳转，对象传惨
-   * @param {String} url page路径
-   * @param {Object} params 参数
-   */
-function route (url, params, type = 'navigateTo') {
-  console.log(params)
-  if (params) {
-    const obj = {}
-    for (let key in params) {
-      if (typeof params[key] === 'object') {
-        obj[key] = encodeURIComponent(JSON.stringify(params[key]))
-      }
-      // 如果包含http链接进行编码操作
-      if ((typeof params[key] === 'string') && params[key].includes('http')) {
-        params[key] = encodeURIComponent(params[key])
-      }
-    }
-    const query = Object.assign(params, obj)
-    url = url + queryParams(query)
-    console.log(url)
-    uni[type]({ url })
-  } else {
-    uni[type]({ url })
-  }
-}
+
 /**
  * @description 获取路由参数
  * @param {Object} query 路由参数
@@ -606,6 +579,5 @@ export default {
   getProperty,
   setProperty,
   page,
-  route,
   query
 }

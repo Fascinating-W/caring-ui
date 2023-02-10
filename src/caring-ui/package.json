@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "风度万人迷",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "caring-css": "^0.1.4"
+  }
 }

@@ -1,7 +1,8 @@
 {
 	"easycom": {
 		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue",
-		"^caring-(.*)": "@/caring-ui/components/caring-$1/caring-$1.vue"
+		"^caring-(.*)": "@/caring-ui/components/caring-$1/caring-$1.vue",
+		"^c-(.*)": "@/caring-ui/components/c-$1/c-$1.vue"
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
@@ -62,6 +63,24 @@
 			"path": "pages/components/nodata",
 			"style": {
 				"navigationBarTitleText": "nodata"
+			}
+		},
+		{
+			"path": "pages/components/gap",
+			"style": {
+				"navigationBarTitleText": "gap"
+			}
+		},
+		{
+			"path": "pages/components/empty",
+			"style": {
+				"navigationBarTitleText": "empty"
+			}
+		},
+		{
+			"path": "pages/components/image",
+			"style": {
+				"navigationBarTitleText": "image"
 			}
 		}
 	],

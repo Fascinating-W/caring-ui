@@ -1,27 +1,24 @@
 <template>
-  <div class="padding">
-    <u-line/>
-    <u-line length="50%" class="margin-top"/>
+  <div class="p">
+    <view class="my">
+      <c-line length="50" color="warning"></c-line>
+    </view>
+    <view class="my">
+      <c-line length="50" color="warning" dashed></c-line>
+    </view>
+    <view class="my">
+      <c-line length="50%"></c-line>
+    </view>
+    <view class="my">
+      <c-line length="50" col></c-line>
+    </view>
 
-    <u-line length="50%" class="margin-top" dashed/>
-
-
-    <u-line length="50px" class="margin-top"/>
-
-    <u-line length="50px" class="margin-top" :hairline="false"/>
-
-    <u-line length="50px" class="margin-top" direction="col" color="red"/>
-
-
+    <view class="my">
+      <c-line hairLine></c-line>
+    </view>
   </div>
 </template>
 
-<script>
-  export default {
-    
-  }
-</script>
+<script></script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

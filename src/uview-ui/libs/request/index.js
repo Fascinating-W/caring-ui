@@ -9,6 +9,8 @@ class Request {
 
 	// 主要请求部分
 	request(options = {}) {
+		console.log('主要请求部分')
+		// console.log(this.config)
 		// 检查请求拦截
 		if (this.interceptor.request && typeof this.interceptor.request === 'function') {
 			let tmpConfig = {};
@@ -26,6 +28,7 @@ class Request {
 		options.header = Object.assign({}, this.config.header, options.header);
 		options.method = options.method || this.config.method;
 
+		console.log('options', options)
 		return new Promise((resolve, reject) => {
 			options.complete = (response) => {
 				// 请求返回后，隐藏loading(如果请求返回快的话，可能会没有loading)
