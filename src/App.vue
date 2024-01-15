@@ -2,14 +2,14 @@
  * @Author: Wanko
  * @Date: 2022-03-25 21:23:51
  * @LastEditors: Wanko
- * @LastEditTime: 2023-02-10 14:05:21
+ * @LastEditTime: 2024-01-09 11:49:33
  * @Description: 
 -->
 <script>
 export default {
   onLaunch() {
-    console.log('App Launchsss')
-    // console.log(uni.$c.color)
+    console.log('App Launch')
+    console.log(uni.$c)
   },
   onShow() {
     console.log('App Show')
@@ -21,6 +21,6 @@ export default {
 </script>
 <style lang="scss">
 /*每个页面公共css */
-@import './caring-ui/index.scss';
+// @import './caring-ui/index.scss';
 // @import "./uview-ui/index.scss";
 </style>

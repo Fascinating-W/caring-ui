@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2023-02-10 17:21:59
  * @LastEditors: Wanko
- * @LastEditTime: 2023-02-10 17:29:34
+ * @LastEditTime: 2023-05-17 14:00:51
  * @Description: 
  */
 import {INTERFACE} from './interface'
@@ -10,7 +10,7 @@ import {INTERFACE} from './interface'
 const install = (Vue, vm) => {
   Vue.prototype.$c.request.setConfig({
     loadingText: '努力加载中~',
-    loadingTime: 100,
+    // loadingTime: 100,
     baseUrl: 'http://jsonplaceholder.typicode.com'
     // raw: false
     // 设置自定义头部content-type

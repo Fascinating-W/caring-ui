@@ -1,3 +1,17 @@
+<!--
+ * @Author: Wanko
+ * @Date: 2022-04-06 11:29:29
+ * @LastEditors: Wanko
+ * @LastEditTime: 2024-01-09 11:55:44
+ * @Description: 
+-->
+<!--
+ * @Author: Wanko
+ * @Date: 2022-04-06 11:29:29
+ * @LastEditors: Wanko
+ * @LastEditTime: 2024-01-09 11:55:43
+ * @Description: 
+-->
 <template>
   <div class="caring-title flex-center">
     <span class="caring-title__icon" :style="{ 'background-color': color }"></span>

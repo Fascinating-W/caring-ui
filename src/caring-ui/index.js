@@ -2,47 +2,31 @@
  * @Author: Wanko
  * @Date: 2022-04-06 10:43:39
  * @LastEditors: Wanko
- * @LastEditTime: 2023-02-10 11:27:11
+ * @LastEditTime: 2024-01-15 18:22:30
  * @Description: 
  */
+import route from 'caring-route'
+import utils from 'caring-utils'
+import uniApi from 'caring-uni'
+import request from 'caring-request'
+
+
+import index from './libs/function/index.js'
 import config from './libs/config'
 // 全局mixin
 import mixin from './libs/mixin'
-
-// 规则检验
-import is from './libs/function/test.js'
-
-// props配置信息
-import props from './libs/config/props.js'
-
-// 公共文件写入的方法
-import index from './libs/function/index.js'
-
-// uniAPI二次封装方法
-import uniApi from './libs/function/uni.js'
-
-// 防抖方法
-import debounce from './libs/function/debounce.js'
-// 节流方法
-import throttle from './libs/function/throttle.js'
-
-// 路由方法
-import route from './libs/function/route'
-
+// 引入主题色
 import color from './theme.scss'
 
-import request from './libs/request'
+// 引入主题样式
+import './index.scss'
 
 const $c = {
   ...index,
-  config,
-  is,
-  props,
+  ...utils,
   color,
+  config,
   ...uniApi,
-  debounce,
-  throttle,
-
   route,
   request
 }

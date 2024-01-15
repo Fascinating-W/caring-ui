@@ -1,10 +1,11 @@
 /* 颜色变量 */
 @import "./caring-ui/theme.scss";
 @import './uview-ui/theme.scss';
+
 // 自定义主题
-$c-primary: skyblue;
+$c-primary: red;
 
-
+// 导出需要覆盖的主题色
 :export {
   primary: $c-primary;
 }
