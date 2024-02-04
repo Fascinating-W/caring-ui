@@ -82,6 +82,18 @@
 			"style": {
 				"navigationBarTitleText": "image"
 			}
+		},
+		{
+			"path": "pages/components/popup",
+			"style": {
+				"navigationBarTitleText": "popup"
+			}
+		},
+		{
+			"path": "pages/components/mask",
+			"style": {
+				"navigationBarTitleText": "mask"
+			}
 		}
 	],
 	"globalStyle": {

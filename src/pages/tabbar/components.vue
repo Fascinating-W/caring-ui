@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-04-06 10:45:37
  * @LastEditors: Wanko
- * @LastEditTime: 2024-01-10 11:32:37
+ * @LastEditTime: 2024-02-04 10:29:51
  * @Description: 
 -->
 <template>
@@ -62,6 +62,14 @@ export default {
         {
           path: '/pages/components/section',
           title: 'section'
+        },
+        {
+          path: '/pages/components/popup',
+          title: 'popup'
+        },
+        {
+          path: '/pages/components/mask',
+          title: 'mask'
         }
       ]
     }
