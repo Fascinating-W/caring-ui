@@ -1,5 +1,7 @@
 <template>
   <view class="p">
+		<c-icon name="send" custom-prefix="custom-icon"/>
+		<c-icon name="level"/>
     <view class="border-l border-t flex-wrap">
       <view v-for="(i, index) in iconList" class="h-100 flex-cc flex-col border-b border-r" :key="index"
         style="flex: 0 0 33.33333333%;"><c-icon :name="i.name"></c-icon>

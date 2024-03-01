@@ -94,7 +94,19 @@
 			"style": {
 				"navigationBarTitleText": "mask"
 			}
-		}
+		},
+		{
+      "path": "pages/components/backTop",
+      "style": {
+        "navigationBarTitleText": "backTop-返回顶部"
+      }
+    },
+		{
+      "path": "pages/components/cell",
+      "style": {
+        "navigationBarTitleText": "cell-单元格"
+      }
+    }
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

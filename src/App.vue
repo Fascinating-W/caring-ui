@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-03-25 21:23:51
  * @LastEditors: Wanko
- * @LastEditTime: 2024-01-09 11:49:33
+ * @LastEditTime: 2024-03-01 18:24:34
  * @Description: 
 -->
 <script>
@@ -22,5 +22,5 @@ export default {
 <style lang="scss">
 /*每个页面公共css */
 // @import './caring-ui/index.scss';
-// @import "./uview-ui/index.scss";
+@import "./uview-ui/index.scss";
 </style>

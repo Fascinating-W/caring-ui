@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-10-19 15:31:29
  * @LastEditors: Wanko
- * @LastEditTime: 2022-12-03 17:49:26
+ * @LastEditTime: 2024-02-26 15:57:43
  * @Description: 
 -->
 <template>
@@ -32,11 +32,24 @@ export default {
       type: [Number, String],
       // 默认继承父元素大小
       default: 'inherit'
-    }
+    },
+    // 自定义扩展前缀，方便用户扩展自己的图标库
+		customPrefix: {
+			type: String,
+			default: 'cicon'
+		},
   },
   computed: {
     customClass() {
-      let classes = [`cicon-${this.name}`, 'c-iconfont']
+      let classes = []
+			classes.push(this.customPrefix + '-' + this.name)
+			// uView的自定义图标类名为u-iconfont
+			if (this.customPrefix == 'cicon') {
+				classes.push('c-iconfont')
+			} else {
+				classes.push(this.customPrefix)
+			}
+
       if (this.color && this.$c.config.type.includes(this.color))
         classes.push(`c-${this.color}`)
       return classes
@@ -57,4 +70,5 @@ export default {
 
 <style lang="scss" scoped>
 @import './iconfont.css';
+@import './custom.css';
 </style>

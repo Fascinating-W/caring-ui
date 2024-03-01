@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-04-06 10:45:37
  * @LastEditors: Wanko
- * @LastEditTime: 2024-02-04 10:29:51
+ * @LastEditTime: 2024-03-01 17:32:30
  * @Description: 
 -->
 <template>
@@ -34,6 +34,11 @@ export default {
           path: '/pages/components/color',
           icon: 'line',
           title: '颜色'
+        },
+        {
+          path: '/pages/components/cell',
+          icon: 'cell',
+          title: '单元格'
         },
         {
           path: '/pages/components/icon',
@@ -70,6 +75,10 @@ export default {
         {
           path: '/pages/components/mask',
           title: 'mask'
+        },
+        {
+          path: '/pages/components/backTop',
+          title: 'backTop-返回顶部'
         }
       ]
     }

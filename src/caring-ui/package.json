@@ -1,6 +1,6 @@
 {
   "name": "caring-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "https://www.wolai.com/5zF6pi1TobpdiQmMV1bRQb",
   "main": "index.js",
   "scripts": {
@@ -10,10 +10,10 @@
   "author": "风度万人迷",
   "license": "ISC",
   "dependencies": {
-    "caring-css": "^0.2.2",
-    "caring-request": "^1.0.2",
+    "caring-css": "^0.2.4",
+    "caring-request": "^1.0.3",
     "caring-route": "^1.0.0",
-    "caring-uni": "^1.0.0",
+    "caring-uni": "^1.0.1",
     "caring-utils": "^0.0.1"
   }
 }

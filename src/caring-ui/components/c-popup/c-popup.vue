@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-02-04 15:12:40
  * @LastEditors: Wanko
- * @LastEditTime: 2024-02-04 16:33:40
+ * @LastEditTime: 2024-02-26 16:09:45
  * @Description: 
 -->
 <template>
@@ -182,7 +182,7 @@ export default {
     // 或者百分比"50%"，表示由内容撑开高度或者宽度，优先级高于length参数
     height: {
       type: String,
-      default: '50%'
+      default: 'auto'
     },
     // 给一个负的margin-top，往上偏移，避免和键盘重合的情况，仅在mode=center时有效
     negativeTop: {
