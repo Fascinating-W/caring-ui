@@ -3,11 +3,14 @@
     <div v-for="(i, index) in colors" :key="index">
       <u-section :title="i.title" :right="false" />
       <div class="flex-center py">
-        <div class="flex-1 p " v-for="(j,index2) in i.item" :key="index2"
-        :style="{background: j.color}"
-        @click="handleClick(j)"
+        <div
+          class="flex-1 p"
+          v-for="(j, index2) in i.item"
+          :key="index2"
+          :style="{ background: j.color }"
+          @click="handleClick(j)"
         >
-          <div>{{j.color}}</div>
+          <div>{{ j.color }}</div>
         </div>
       </div>
     </div>
@@ -16,7 +19,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       colors: [
         {
@@ -190,17 +193,18 @@ export default {
   methods: {
     handleClick(item) {
       console.log(item.color)
-      this.$c.showModal({
-        title: item.color,
-        content: item.name,
-        confirmColor: item.color,
-      }).catch(() => {
-        console.log('cancel')
-      })
+      this.$c
+        .showModal({
+          title: item.color,
+          content: item.name,
+          confirmColor: item.color
+        })
+        .catch(() => {
+          console.log('cancel')
+        })
     }
-  },
+  }
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

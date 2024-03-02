@@ -106,6 +106,12 @@
       "style": {
         "navigationBarTitleText": "cell-单元格"
       }
+    },
+		{
+      "path": "pages/components/button",
+      "style": {
+        "navigationBarTitleText": "Button 按钮"
+      }
     }
 	],
 	"globalStyle": {

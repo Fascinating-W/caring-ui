@@ -10,7 +10,7 @@
 		}"
 	>
 		<c-icon :size="iconSize" :name="icon" v-if="icon" :custom-style="iconStyle" class="c-cell__left-icon-wrap"></c-icon>
-		<view class="flex-center" v-else>
+		<view class="flex-center " v-else>
 			<slot name="icon"></slot>
 		</view>
 		<view
@@ -91,7 +91,7 @@ export default {
 		// 是否显示右侧箭头
 		arrow: {
 			type: Boolean,
-			default: true
+			default: false
 		},
 		// 内容是否垂直居中
 		center: {
@@ -149,10 +149,10 @@ export default {
 			type: Boolean,
 			default: false
 		},
-		// 左边图标的大小，单位rpx，只对传入icon字段时有效
+		// 左边图标的大小，单位px，只对传入icon字段时有效
 		iconSize: {
 			type: [Number, String],
-			default: 34
+			default: 17
 		},
 		// 左边图标的样式，对象形式
 		iconStyle: {

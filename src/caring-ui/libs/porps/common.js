@@ -2,9 +2,10 @@
  * @Author: Wanko
  * @Date: 2024-02-04 10:48:18
  * @LastEditors: Wanko
- * @LastEditTime: 2024-02-04 15:32:14
- * @Description:
+ * @LastEditTime: 2024-03-02 17:02:27
+ * @Description: 公共props
  */
+
 export const value = {
   type: Boolean,
   default: false
@@ -18,6 +19,10 @@ export const customStyle = {
   default() {
     return {}
   }
+}
+export const customClass = {
+  type: String,
+  default: ''
 }
 export const duration = {
   type: [Number, String],

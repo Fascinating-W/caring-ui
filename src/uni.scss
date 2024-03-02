@@ -2,10 +2,10 @@
 @import "./caring-ui/theme.scss";
 @import './uview-ui/theme.scss';
 
-// 自定义主题
-$c-primary: red;
+// // 自定义主题
+$c-primary: purple;
 
-// 导出需要覆盖的主题色
+// // 导出需要覆盖的主题色
 :export {
   primary: $c-primary;
 }

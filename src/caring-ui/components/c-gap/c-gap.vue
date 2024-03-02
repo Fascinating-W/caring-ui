@@ -2,11 +2,11 @@
  * @Author: Wanko
  * @Date: 2022-10-24 15:42:10
  * @LastEditors: Wanko
- * @LastEditTime: 2022-12-03 17:51:05
+ * @LastEditTime: 2024-03-02 17:58:03
  * @Description: 
 -->
 <template>
-  <view :style="[gapStyle]"></view>
+  <div :style="[gapStyle]" :class="[width ? 'inline-block' : '']"></div>
 </template>
 
 <script>
@@ -15,9 +15,13 @@ export default {
   name: 'c-gap',
   props: {
     // 默认透明背景
-    bgColor: {
+    color: {
       type: String,
       default: 'transparent ' //
+    },
+    width: {
+      type: [String, Number],
+      default: 0
     },
     // 高度
     height: {
@@ -27,13 +31,13 @@ export default {
   },
   computed: {
     gapStyle() {
+      console.log(this.width);
       return {
-        backgroundColor: calcColor(this.bgColor),
-        height: this.$c.addUnit(this.height)
+        backgroundColor: calcColor(this.color),
+        height: this.width ? this.$c.addUnit(0) : this.$c.addUnit(this.height),
+        width: this.width ? this.$c.addUnit(this.width) : '100%'
       }
     }
   }
 }
 </script>
-
-<style lang="scss" scoped></style>
