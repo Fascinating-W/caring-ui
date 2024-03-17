@@ -2,13 +2,17 @@
  * @Author: Wanko
  * @Date: 2022-11-22 14:15:18
  * @LastEditors: Wanko
- * @LastEditTime: 2022-12-03 16:54:18
+ * @LastEditTime: 2024-03-04 18:37:12
  * @Description: 
 -->
 <template>
   <div>
     <div class="p m border">
       <div>基本使用，宽高</div>
+      <image
+        :src="src"
+      />
+      <c-image :src="src"></c-image>
       <view class="w-50 h-50">
         <c-image :src="src"></c-image>
       </view>

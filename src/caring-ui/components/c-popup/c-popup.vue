@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-02-04 15:12:40
  * @LastEditors: Wanko
- * @LastEditTime: 2024-02-26 16:09:45
+ * @LastEditTime: 2024-03-08 11:40:21
  * @Description: 
 -->
 <template>
@@ -80,7 +80,7 @@ import {
   maskClickAble,
   duration,
   safeAreaInsetBottom
-} from '../../libs/porps/common.js'
+} from '../../libs/props/common.js'
 
 export default {
   props: {
@@ -133,19 +133,10 @@ export default {
       type: Boolean,
       default: true
     },
-    // 显示显示弹窗的圆角，单位rpx
-    borderRadius: {
+    // 显示显示弹窗的圆角，单位px
+    rounded: {
       type: [Number, String],
       default: 0
-    },
-    // 显示显示弹窗的圆角，单位rpx
-    borderRadius: {
-      type: [Number, String],
-      default: 24
-    },
-    zIndex: {
-      type: [Number, String],
-      default: ''
     },
     // 是否显示关闭图标
     closeable: {
@@ -217,20 +208,20 @@ export default {
         }
       }
       style.zIndex = this.uZindex
-      // 如果用户设置了borderRadius值，添加弹窗的圆角
-      if (this.borderRadius) {
+      // 如果用户设置了rounded值，添加弹窗的圆角
+      if (this.rounded) {
         switch (this.mode) {
           case 'left':
-            style.borderRadius = `0 ${this.borderRadius}rpx ${this.borderRadius}rpx 0`
+            style.borderRadius = `0 ${this.rounded}px ${this.rounded}px 0`
             break
           case 'top':
-            style.borderRadius = `0 0 ${this.borderRadius}rpx ${this.borderRadius}rpx`
+            style.borderRadius = `0 0 ${this.rounded}px ${this.rounded}px`
             break
           case 'right':
-            style.borderRadius = `${this.borderRadius}rpx 0 0 ${this.borderRadius}rpx`
+            style.borderRadius = `${this.rounded}px 0 0 ${this.rounded}px`
             break
           case 'bottom':
-            style.borderRadius = `${this.borderRadius}rpx ${this.borderRadius}rpx 0 0`
+            style.borderRadius = `${this.rounded}px ${this.rounded}px 0 0`
             break
           default:
         }
@@ -251,8 +242,8 @@ export default {
       style.height = this.height ? this.getUnitValue(this.height) : 'auto'
       style.zIndex = this.uZindex
       style.marginTop = `-${this.$c.addUnit(this.negativeTop)}`
-      if (this.borderRadius) {
-        style.borderRadius = `${this.borderRadius}rpx`
+      if (this.rounded) {
+        style.borderRadius = `${this.rounded}px`
         // 不加可能圆角无效
         style.overflow = 'hidden'
       }
@@ -412,7 +403,7 @@ export default {
 
 .c-mode-center-box {
   min-width: 100rpx;
-  min-height: 100rpx;
+  min-rounded: 100rpx;
   position: relative;
   background-color: #ffffff;
 }
@@ -455,3 +446,4 @@ export default {
   bottom: 30rpx;
 }
 </style>
+../../libs/props/common.js

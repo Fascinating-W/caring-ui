@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-03-25 21:23:51
  * @LastEditors: Wanko
- * @LastEditTime: 2024-01-15 18:17:44
+ * @LastEditTime: 2024-03-14 11:27:13
  * @Description: 
  */
 import Vue from 'vue'
@@ -21,6 +21,9 @@ const app = new Vue({
   ...App
 })
 
-Vue.use(uView).use(caringUi)
+Vue.use(uView).use(caringUi, {
+  // 配置项 
+  name: '2333'
+})
 
 app.$mount()

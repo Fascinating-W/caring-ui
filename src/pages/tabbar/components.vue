@@ -2,102 +2,151 @@
  * @Author: Wanko
  * @Date: 2022-04-06 10:45:37
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-02 17:41:53
+ * @LastEditTime: 2024-03-17 14:52:54
  * @Description: 
 -->
 <template>
-  <div class="h-screen bg-f8">
-    <button @click="modal">showModal</button>
-    <div class="p m bg-red-light rounded c-primary">{{ $c.color.primary }}</div>
-    <!-- <div
-      v-for="(i, index) in list"
-      :key="index"
-      class="m p bg-white justify-between rounded"
-      @click="$c.route(i.path)"
-    >
-      <span>{{ i.title }}</span>
-      <c-icon name="arrow-right" class="c-primary" color="primary"></c-icon>
-    </div> -->
-    <c-cell-group title="标题">
-      <c-cell-item
-        :title="i.title"
-        :key="index"
-        v-for="(i, index) in list"
-        @click="$c.route(i.path)"
-        arrow
-      />
-    </c-cell-group>
+  <div class="">
+    <c-navbar
+      :isBack="true"
+      backText="CARING UI"
+      :background="background"
+      :border-bottom="false"
+      :backTextStyle="{
+        color: '#333',
+        fontWeight: 'bold',
+        fontSize: '18px',
+        opacity: opacity
+      }"
+      backIconName=""
+    ></c-navbar>
+    <div class="bgc"></div>
+
+    <div class="relative px-10 z-max">
+      <c-sticky
+        :offsetTop="offsetTop"
+        zIndex="990"
+        bg-color="transparent"
+        h5NavHeight="0"
+      >
+        <div :style="{ width: width }" class="search">
+          <c-search bgColor="#fff" borderColor="#e1d7f0" disabled round></c-search>
+        </div>
+      </c-sticky>
+    </div>
+    <div class="relative p">
+      <c-collapse
+        :headStyle="{
+          padding: '20px',
+          color: '#666',
+          fontSize: '15px'
+        }"
+        :itemStyle="{
+          background: '#fff',
+          'margin-bottom': '10px',
+          borderRadius: '12px',
+          overflow: 'hidden'
+        }"
+      >
+        <c-collapse-item
+          :title="i.groupName"
+          v-for="(i, index) in list"
+          :key="index"
+        >
+          <div class="p">
+            <c-cell-group>
+              <c-cell-item
+                :title="j.title"
+                :key="jdx"
+                v-for="(j, jdx) in i.list"
+                @click="$c.route(j.path)"
+                arrow
+              />
+            </c-cell-group>
+          </div>
+        </c-collapse-item>
+      </c-collapse>
+      <c-gap height="500"></c-gap>
+    </div>
   </div>
 </template>
 
 <script>
+import list from './list.js'
+let menuButtonInfo = {}
+// 如果是小程序，获取右上角胶囊的尺寸信息，避免导航栏右侧内容与胶囊重叠(支付宝小程序非本API，尚未兼容)
+// #ifdef MP-WEIXIN || MP-BAIDU || MP-TOUTIAO || MP-QQ
+menuButtonInfo = uni.getMenuButtonBoundingClientRect()
+// #endif
+
 export default {
   data() {
     return {
-      list: [
-        {
-          path: '/pages/components/color',
-          icon: 'line',
-          title: 'Color 色彩'
-        },
-        {
-          path: '/pages/components/icon',
-          title: 'Icon 图标'
-        },
-         {
-          path: '/pages/components/image',
-          title: 'Image 图片'
-        },
-        {
-          path: '/pages/components/cell',
-          icon: 'cell',
-          title: 'Cell 单元格'
-        },
-        {
-          path: '/pages/components/button',
-          icon: 'button',
-          title: 'Button 按钮'
-        },
-        {
-          path: '/pages/components/line',
-          title: 'line'
-        },
-        {
-          path: '/pages/components/gap',
-          title: 'Gap 间隔'
-        },
-        {
-          path: '/pages/components/loading',
-          title: 'loading'
-        },
-        {
-          path: '/pages/components/empty',
-          title: 'empty'
-        },
-       
-        {
-          path: '/pages/components/section',
-          title: 'Section 章节'
-        },
-        {
-          path: '/pages/components/popup',
-          title: 'popup'
-        },
-        {
-          path: '/pages/components/mask',
-          title: 'mask'
-        },
-        {
-          path: '/pages/components/backTop',
-          title: 'backTop-返回顶部'
-        }
-      ]
+      list,
+      menuButtonInfo: menuButtonInfo,
+      background: {
+        backgroundColor: 'transparent',
+        filter: `blur(0px)`
+      },
+      width: 'auto',
+      blurAmount: 0,
+      navbarBgColor: 'rgba(0, 0, 0, 0)',
+      height: 0,
+      opacity: 1,
+      offsetTop: 0,
     }
   },
   onLoad() {
-    console.log(this.$c.color)
+    let height = uni.getSystemInfoSync().platform == 'ios' ? 44 : 48
+
+    // #ifdef MP-WEIXIN
+    this.offsetTop = height
+    // #endif
+    // #ifdef H5
+    this.offsetTop = 10
+    // #endif
+    
+    this.maxHeight = uni.getSystemInfoSync().statusBarHeight + height
+    this.height = uni.getSystemInfoSync().statusBarHeight + height
+    console.log(this.height)
+
+    console.log(menuButtonInfo)
+    this.width = menuButtonInfo.left - 20
+    console.log(this.width, '0000')
+  },
+  onPageScroll(event) {
+    // console.log(event)
+    this.scrollTop = event.scrollTop || 0
+    this.getNavBarBgColor()
   },
   methods: {
+    getNavBarBgColor() {
+      // 根据下拉距离，计算导航栏背景颜色
+      const width = menuButtonInfo.left - 20
+      const initalWidh = uni.getSystemInfoSync().windowWidth - 20
+      console.log(width, 'width')
+      const scrollTopRatio = this.scrollTop / this.maxHeight // 滚动距离的比例
+
+      // #ifdef MP-WEIXIN
+      this.width =
+        this.scrollTop >= this.maxHeight
+          ? width
+          : initalWidh - scrollTopRatio * 100
+      // this.width =
+      //   this.scrollTop >= this.maxHeight ? this.maxHeight : width / this.scrollTop
+      this.width = this.width + 'px'
+      // #endif
+
+      const alpha =
+        this.scrollTop >= this.maxHeight ? 1 : this.scrollTop / this.maxHeight
+      this.opacity = Math.max(0, 1 - this.scrollTop / this.maxHeight)
+
+      this.blurAmount = Math.min(10, Math.round(this.scrollTop / 10)) // 根据需要调整这个计算逻辑
+      this.background = {
+        backgroundColor: `rgba(255, 255, 255, ${alpha})`
+        // filter: `blur(${this.blurAmount}px)`
+      }
+    },
     clickImg() {
       console.log('1111')
     },
@@ -108,4 +157,20 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+page {
+  background: #f8f8f8;
+}
+.bgc {
+  position: fixed;
+  top: 0rpx;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(180deg, #f9d7ea 0%, #f8f8f8 100%) #e03997;
+  // background: linear-gradient(4deg, #f8f8f8 0%, #f8f8f8 0%, #b2c3ff 53%) #5771e7;
+}
+.search {
+  transition: all 0.3s ease;
+}
+</style>

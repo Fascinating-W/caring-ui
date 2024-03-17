@@ -156,6 +156,7 @@
 			},
 			// 点击关闭按钮
 			close() {
+				console.log('close');
 				this.$emit('close');
 			}
 		}

@@ -2,20 +2,21 @@
  * @Author: Wanko
  * @Date: 2022-10-20 16:38:18
  * @LastEditors: Wanko
- * @LastEditTime: 2022-12-03 17:53:38
+ * @LastEditTime: 2024-03-14 09:48:24
  * @Description: 
 -->
 <template>
-  <view :style="[lineStyle]"> </view>
+  <view :style="[lineStyle]" :class="[customClass]"> </view>
 </template>
 
 <script>
 import { calcColor } from '../../libs/helper/utils.js'
-
+import {customClass} from '../../libs/props/common.js'
 export default {
   name: 'c-line',
   props: {
-    // 支持主题色
+    // 支持主题色,
+    customClass,
     color: {
       type: String,
       default: uni.$c.color.border
@@ -69,5 +70,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped></style>

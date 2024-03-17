@@ -249,6 +249,7 @@ export default {
 		centerStyle() {
 			let style = {};
 			style.width = this.width ? this.getUnitValue(this.width) : this.getUnitValue(this.length);
+			console.log(this.width, style.width, this.length);
 			// 中部弹出的模式，如果没有设置高度，就用auto值，由内容撑开高度
 			style.height = this.height ? this.getUnitValue(this.height) : 'auto';
 			style.zIndex = this.uZindex;

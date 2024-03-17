@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-10-19 16:46:42
  * @LastEditors: Wanko
- * @LastEditTime: 2024-01-09 09:48:13
+ * @LastEditTime: 2024-03-15 11:14:39
  * @Description: 主题色文件
  */
 .c-primary-light {
@@ -105,8 +105,14 @@
 	color: $c-info-disabled;
 }
 
-.c-primary {
+.c-primary,.text-primary{
 	color: $c-primary;
+}
+.bg-primary {
+	background-color: $c-primary;
+}
+.border-primary{
+	border: 1px solid $c-primary;
 }
 
 .c-warning {
@@ -125,25 +131,7 @@
 	color: $c-info;
 }
 
-.c-primary-bg {
-	background-color: $c-primary;
-}
 
-.c-warning-bg {
-	background-color: $c-warning;
-}
-
-.c-success-bg {
-	background-color: $c-success;
-}
-
-.c-error-bg {
-	background-color: $c-error;
-}
-
-.c-info-bg {
-	background-color: $c-info;
-}
 
 .c-main-color {
 	color: $c-main-color;

@@ -3,12 +3,12 @@
     <view
       class="c-loading-circle"
       :style="[cricleStyle]"
-      v-if="mode == 'circle'"
+      v-if="!flower"
     ></view>
     <view
       class="c-loading-flower"
       :style="[flowerStyle]"
-      v-if="mode == 'flower'"
+      v-if="flower"
     >
     </view>
   </view>
@@ -20,20 +20,20 @@ import { calcColor } from '../../libs/helper/utils.js'
 export default {
   name: 'c-loading',
   props: {
-    // 动画的类型
-    mode: {
-      type: String,
-      default: 'circle'
-    },
     // 动画的颜色
     color: {
       type: String,
+      // c8c9cc
       default: uni.$c.color.disable
     },
     // 加载图标的大小，单位rpx
     size: {
       type: [String, Number],
       default: '17'
+    },
+    flower: {
+      type: Boolean,
+      default: false
     },
     // 是否显示动画
     show: {

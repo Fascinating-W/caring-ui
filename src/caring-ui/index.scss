@@ -2,3 +2,38 @@
 // 引入主题色变量 需要覆盖caring-css
 @import 'libs/styles/color.scss';
 
+.c-placeholder-class {
+  color: $c-light-color;
+}
+
+/* 去除webkit的默认样式--start */
+.c-fix-ios-appearance {
+	-webkit-appearance:none;
+}
+
+.c-cell-hover {
+	background-color: #f7f8f9!important;
+}
+/* start--去除button的所有默认样式--start */
+.c-reset-button {
+	padding: 0;
+	font-size: inherit;
+	line-height: inherit;
+	background-color: transparent;
+	color: inherit;
+  &::after {
+    border: none;
+  }
+}
+/* end--去除button的所有默认样式--end */
+
+/* start--提升H5端uni.toast()的层级，避免被uView的modal等遮盖--start */
+/* #ifdef H5 */
+uni-toast {
+    z-index: 10090;
+}
+uni-toast .uni-toast {
+   z-index: 10090;
+}
+/* #endif */
+/* end--提升H5端uni.toast()的层级，避免被uView的modal等遮盖--end */

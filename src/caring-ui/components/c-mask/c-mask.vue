@@ -2,28 +2,39 @@
  * @Author: Wanko
  * @Date: 2024-02-04 10:44:53
  * @LastEditors: Wanko
- * @LastEditTime: 2024-02-04 15:30:12
+ * @LastEditTime: 2024-03-14 10:02:41
  * @Description: 
 -->
 <template>
   <div
     class="c-mask"
+    :class="{ 'c-mask-zoom': zoom }"
     :style="[maskStyle, zoomStyle]"
     @tap="onClick"
     @touchmove.stop.prevent="() => {}"
     hover-stop-propagation
-  ></div>
+  >
+    <slot />
+  </div>
 </template>
 
 <script>
-import {value,zIndex,customStyle, maskClickAble,duration} from '../../libs/porps/common.js'
+import {
+  value,
+  zIndex,
+  customStyle,
+  maskClickAble,
+  duration,
+  zoom
+} from '../../libs/props/common.js'
 export default {
   props: {
     value,
     zIndex,
     customStyle,
     duration,
-    maskClickAble
+    maskClickAble,
+    zoom
   },
   data() {
     return {
@@ -37,13 +48,18 @@ export default {
     maskStyle() {
       let style = {}
       style.transition = `all ${this.duration / 1000}s ease-in-out`
+      style.backgroundColor = 'rgba(0, 0, 0, 0.6)'
       if (this.value) {
         style.opacity = 1
-        style.backgroundColor = 'rgba(0, 0, 0, 0.6)'
         style.zIndex = this.zIndex ? this.zIndex : this.$c.zIndex.mask
       } else {
         style.zIndex = -1
       }
+      if (Object.keys(this.customStyle).length)
+        style = {
+          ...style,
+          ...this.customStyle
+        }
       return style
     }
   },
@@ -67,5 +83,8 @@ export default {
   bottom: 0;
   opacity: 0;
   transition: transform 0.3s;
+}
+.c-mask-zoom {
+  transform: scale(1.2, 1.2);
 }
 </style>

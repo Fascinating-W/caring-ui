@@ -110,6 +110,7 @@
 							this.tmpConfig.url += query;
 						}
 					}
+					console.log(this.tmpConfig,'---');
 					// 如果是跳转tab页面，就使用uni.switchTab
 					if (this.tmpConfig.isTab) {
 						uni.switchTab({

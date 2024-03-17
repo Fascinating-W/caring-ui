@@ -80,11 +80,10 @@
     <view class="border-l border-t flex-wrap">
       <view
         v-for="(i, index) in iconList"
-        class="h-100 flex-cc flex-col border-b border-r"
+        class="h-100 flex-cc flex-col border-b border-r w-1-3"
         :key="index"
-        style="flex: 0 0 33.33333333%"
         ><c-icon :name="i.name"></c-icon>
-        <text class="">{{ i.name }}</text>
+        <text class="px">{{ i.name }}</text>
       </view>
     </view>
   </view>

@@ -99,6 +99,8 @@
 		},
 		methods: {
 			initObserver() {
+				console.log(this.offsetTop, '00000');
+				console.log(this.h5NavHeight, '00000');
 				if (!this.enable) return;
 				// #ifdef H5
 				this.stickyTop = this.offsetTop != 0 ? uni.upx2px(this.offsetTop) + this.h5NavHeight : this.h5NavHeight;
@@ -106,7 +108,7 @@
 				// #ifndef H5
 				this.stickyTop = this.offsetTop != 0 ? uni.upx2px(this.offsetTop) : 0;
 				// #endif
-
+				console.log(this.stickyTop, 'stickyTop');
 				this.disconnectObserver('contentObserver');
 				this.$uGetRect('.' + this.elClass).then((res) => {
 					this.height = res.height;

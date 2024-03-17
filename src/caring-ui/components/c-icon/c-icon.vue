@@ -12,6 +12,7 @@
       :mode="imgMode"
       :style="[imgStyle]"
     ></image>
+		
     <view
       v-else
       class="c-icon__icon"
@@ -47,7 +48,7 @@
 </template>
 
 <script>
-import {customClass, customStyle} from '../../libs/porps/common.js'
+import {customClass, customStyle} from '../../libs/props/common.js'
 export default {
 	name: 'c-icon',
 	props: {
@@ -245,6 +246,8 @@ export default {
 			return classes
 		}
 	},
+	mounted(){
+	},
 	methods: {
 		click() {
 			this.$emit('click', this.index)
@@ -325,4 +328,4 @@ export default {
     line-height: 1;
   }
 }
-</style>
+</style>../../libs/props/common.js

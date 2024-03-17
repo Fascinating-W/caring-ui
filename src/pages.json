@@ -4,116 +4,307 @@
 		"^caring-(.*)": "@/caring-ui/components/caring-$1/caring-$1.vue",
 		"^c-(.*)": "@/caring-ui/components/c-$1/c-$1.vue"
 	},
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-			"path": "pages/tabbar/components",
-			"style": {
-				"navigationBarTitleText": "组件"
-			}
-		},
-		{
-			"path": "pages/tabbar/js",
-			"style": {
-				"navigationBarTitleText": "工具"
-			}
-		},
-		{
-			"path": "pages/tabbar/template",
-			"style": {
-				"navigationBarTitleText": "模版"
-			}
-		},
-		{
-			"path": "pages/components/section",
-			"style": {
-				"navigationBarTitleText": "section"
-			}
-		},
-		{
-			"path": "pages/components/icon",
-			"style": {
-				"navigationBarTitleText": "icon"
-			}
-		},
-		{
-			"path": "pages/components/line",
-			"style": {
-				"navigationBarTitleText": "line"
-			}
-		},
-		{
-			"path": "pages/components/color",
-			"style": {
-				"navigationBarTitleText": "color"
-			}
-		},
-		{
-			"path": "pages/components/loading",
-			"style": {
-				"navigationBarTitleText": "loading"
-			}
-		},
-		{
-			"path": "pages/components/title",
-			"style": {
-				"navigationBarTitleText": "title"
-			}
-		},
-		{
-			"path": "pages/components/nodata",
-			"style": {
-				"navigationBarTitleText": "nodata"
-			}
-		},
-		{
-			"path": "pages/components/gap",
-			"style": {
-				"navigationBarTitleText": "gap"
-			}
-		},
-		{
-			"path": "pages/components/empty",
-			"style": {
-				"navigationBarTitleText": "empty"
-			}
-		},
-		{
-			"path": "pages/components/image",
-			"style": {
-				"navigationBarTitleText": "image"
-			}
-		},
-		{
-			"path": "pages/components/popup",
-			"style": {
-				"navigationBarTitleText": "popup"
-			}
-		},
-		{
-			"path": "pages/components/mask",
-			"style": {
-				"navigationBarTitleText": "mask"
-			}
-		},
-		{
+	"pages": [
+    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+
+    {
+      "path": "pages/tabbar/components",
+      "style": {
+        "navigationBarTitleText": "组件",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/tabbar/js",
+      "style": {
+        "navigationBarTitleText": "模块"
+      }
+    },
+    {
+      "path": "pages/tabbar/template",
+      "style": {
+        "navigationBarTitleText": "模版"
+      }
+    },
+    {
+      "path": "pages/components/section",
+      "style": {
+        "navigationBarTitleText": "section"
+      }
+    },
+    {
+      "path": "pages/components/icon",
+      "style": {
+        "navigationBarTitleText": "icon"
+      }
+    },
+    {
+      "path": "pages/components/line",
+      "style": {
+        "navigationBarTitleText": "Line 线条"
+      }
+    },
+    {
+      "path": "pages/components/Divider",
+      "style": {
+        "navigationBarTitleText": "Divider 分割线"
+      }
+    },
+    {
+      "path": "pages/components/color",
+      "style": {
+        "navigationBarTitleText": "color"
+      }
+    },
+    {
+      "path": "pages/components/loading",
+      "style": {
+        "navigationBarTitleText": "Loading 加载"
+      }
+    },
+    {
+      "path": "pages/components/title",
+      "style": {
+        "navigationBarTitleText": "title"
+      }
+    },
+    {
+      "path": "pages/components/nodata",
+      "style": {
+        "navigationBarTitleText": "nodata"
+      }
+    },
+    {
+      "path": "pages/components/gap",
+      "style": {
+        "navigationBarTitleText": "gap"
+      }
+    },
+    {
+      "path": "pages/components/empty",
+      "style": {
+        "navigationBarTitleText": "empty"
+      }
+    },
+    {
+      "path": "pages/components/image",
+      "style": {
+        "navigationBarTitleText": "image"
+      }
+    },
+    {
+      "path": "pages/components/popup",
+      "style": {
+        "navigationBarTitleText": "Popup 弹出层"
+      }
+    },
+    {
+      "path": "pages/components/mask",
+      "style": {
+        "navigationBarTitleText": "mask"
+      }
+    },
+    {
       "path": "pages/components/backTop",
       "style": {
         "navigationBarTitleText": "backTop-返回顶部"
       }
     },
-		{
+    {
       "path": "pages/components/cell",
       "style": {
         "navigationBarTitleText": "cell-单元格"
       }
     },
-		{
+    {
       "path": "pages/components/button",
       "style": {
         "navigationBarTitleText": "Button 按钮"
       }
+    },
+    {
+      "path": "pages/components/tag",
+      "style": {
+        "navigationBarTitleText": "Tag 标签"
+      }
+    },
+    {
+      "path": "pages/components/Navbar",
+      "style": {
+        "navigationBarTitleText": "Navbar 导航栏",
+        "navigationStyle":"custom"
+      }
+    },
+    {
+      "path": "pages/components/collapse",
+      "style": {
+        "navigationBarTitleText": "Collapse 折叠面板",
+        "backgroundColor": "#F8F8F8"
+      }
+    },
+    {
+      "path": "pages/components/search",
+      "style": {
+        "navigationBarTitleText": "Search 搜索",
+        "backgroundColor": "#F8F8F8"
+      }
+    },
+    {
+      "path": "pages/components/swipeAction",
+      "style": {
+        "navigationBarTitleText": "SwipeAction 滑动操作",
+        "backgroundColor": "#F8F8F8"
+      }
+    },
+    {
+      "path": "pages/components/subsection",
+      "style": {
+        "navigationBarTitleText": "Subsection 分段器",
+        "backgroundColor": "#F8F8F8"
+      }
+    },
+    {
+      "path": "pages/components/Avatar",
+      "style": {
+        "navigationBarTitleText": "Avatar 头像"
+      }
+    },
+    {
+      "path": "pages/components/Input",
+      "style": {
+        "navigationBarTitleText": "Input 输入框"
+      }
+    },
+    {
+      "path": "pages/components/Modal",
+      "style": {
+        "navigationBarTitleText": "Modal 模态框"
+      }
+    },
+    {
+      "path": "pages/components/TopTips",
+      "style": {
+        "navigationBarTitleText": "TopTips 顶部提示"
+      }
+    },
+    {
+      "path": "pages/components/Toast",
+      "style": {
+        "navigationBarTitleText": "Toast 消息提示"
+      }
+    },
+    {
+      "path": "pages/components/AlertTips",
+      "style": {
+        "navigationBarTitleText": "AlertTips 警告提示"
+      }
+    },
+    {
+      "path": "pages/components/Swiper",
+      "style": {
+        "navigationBarTitleText": "Swiper 轮播图"
+      }
+    },
+    {
+      "path": "pages/components/Link",
+      "style": {
+        "navigationBarTitleText": "Link 超链接"
+      }
+    },
+    {
+      "path": "pages/components/Steps",
+      "style": {
+        "navigationBarTitleText": "Steps 步骤条"
+      }
+    },
+    {
+      "path": "pages/components/TabsSwiper",
+      "style": {
+        "navigationBarTitleText": "TabsSwiper 全屏选项卡"
+      }
+    },
+    {
+      "path": "pages/components/Grid",
+      "style": {
+        "navigationBarTitleText": "Grid 宫格布局"
+      }
+    },
+    {
+      "path": "pages/components/Sticky",
+      "style": {
+        "navigationBarTitleText": "Sticky 吸顶",
+        "navigationStyle":"custom"
+      }
+    },
+    {
+      "path": "pages/components/ActionSheet",
+      "style": {
+        "navigationBarTitleText": "ActionSheet 操作菜单"
+      }
+    },
+    {
+      "path": "pages/components/NoticeBar",
+      "style": {
+        "navigationBarTitleText": "NoticeBar 滚动通知"
+      }
+    },
+    {
+      "path": "pages/components/Skeleton",
+      "style": {
+        "navigationBarTitleText": "Skeleton 骨架屏"
+      }
+    },
+    {
+      "path": "pages/components/Badge",
+      "style": {
+        "navigationBarTitleText": "Badge 徽标数"
+      }
+    },
+    {
+      "path": "pages/components/TimeLine",
+      "style": {
+        "navigationBarTitleText": "TimeLine 时间轴"
+      }
+    },
+    {
+      "path": "pages/components/Tabs",
+      "style": {
+        "navigationBarTitleText": "Tabs 标签"
+      }
+    },
+    {
+      "path": "pages/components/Dropdown",
+      "style": {
+        "navigationBarTitleText": "Dropdown 下拉菜单"
+      }
+    },
+    {
+      "path": "pages/components/Loadmore",
+      "style": {
+        "navigationBarTitleText": "Loadmore 加载更多"
+      }
+    },
+    {
+      "path": "pages/template/one",
+      "style": {
+        "navigationBarTitleText": "模版",
+        "navigationBarBackgroundColor": "#6739b6",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/template/two",
+      "style": {
+        "navigationBarTitleText": "模版"
+      }
+    },
+    {
+      "path": "pages/template/three",
+      "style": {
+        "navigationBarTitleText": "模版"
+      }
     }
-	],
+  ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
@@ -136,7 +327,7 @@
 				"pagePath": "pages/tabbar/js",
 				"iconPath": "static/tabbar/js.png",
 				"selectedIconPath": "static/tabbar/js_select.png",
-				"text": "工具"
+				"text": "模块"
 			},
 			{
 				"pagePath": "pages/tabbar/template",

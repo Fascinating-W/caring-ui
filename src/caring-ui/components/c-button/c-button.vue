@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-03-02 11:55:06
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-02 11:58:00
+ * @LastEditTime: 2024-03-16 16:17:25
  * @Description: 
 -->
 <template>
@@ -10,17 +10,20 @@
     id="c-wave-btn"
     class="c-btn c-line-1 c-fix-ios-appearance"
     :class="[
-      'c-size-' + size,
-      plain ? 'c-btn--' + type + '--plain' : '',
+      'c-size-' + calcSize,
+      calcType === 'default'
+        ? 'c-btn--default'
+        : 'c-btn--' + calcType + '--' + calcMode,
       loading ? 'c-loading' : '',
-      shape == 'circle' ? 'c-round-circle' : '',
+      calcShape == 'round' ? 'c-round-round' : '',
       hairLine ? showHairLineBorder : 'c-btn--bold-border',
-      'c-btn--' + type,
-      disabled ? `c-btn--${type}--disabled` : ''
+      'c-btn--' + calcType,
+      disabled && calcMode ==='dark' ?`c-btn--${calcType}--disabled` : '',
+      customClass
     ]"
     :hover-start-time="Number(hoverStartTime)"
     :hover-stay-time="Number(hoverStayTime)"
-    :disabled="disabled"
+    :disabled="disabled "
     :form="formType"
     :open="openType"
     :app-parameter="appParameter"
@@ -34,7 +37,7 @@
     :show-message-card="showMessageCard"
     @getphonenumber="getphonenumber"
     @getuserinfo="getuserinfo"
-    @error="error"
+    @error="onError"
     @opensetting="opensetting"
     @launchapp="launchapp"
     :style="[
@@ -47,7 +50,8 @@
     :hover-class="getHoverClass"
     :loading="loading"
   >
-    <slot></slot>
+    <span v-if="text">{{ text }}</span>
+    <slot v-else></slot>
     <view
       v-if="ripple"
       class="c-wave-ripple"
@@ -64,30 +68,19 @@
 </template>
 
 <script>
-/**
- * button 按钮
- * @description Button 按钮
- * @tutorial https://www.uviewui.com/components/button.html
- * @property {Boolean} loading 按钮名称前是否带 loading 图标(App-nvue 平台，在 ios 上为雪花，Android上为圆圈)
- * @property {String} form 用于 <form> 组件，点击分别会触发 <form> 组件的 submit/reset 事件
- * @property {String} open 开放能力
- * @property {String} data-name 额外传参参数，用于小程序的data-xxx属性，通过target.dataset.name获取
- * @property {String} hover-class 指定按钮按下去的样式类。当 hover-class="none" 时，没有点击态效果(App-nvue 平台暂不支持)
- * @property {Number} hover-start-time 按住后多久出现点击态，单位毫秒
- * @property {Number} hover-stay-time 手指松开后点击态保留时间，单位毫秒
- * @property {Object} custom-style 对按钮的自定义样式，对象形式，见文档说明
- * @event {Function} click 按钮点击
- * @event {Function} getphonenumber open="getPhoneNumber"时有效
- * @event {Function} getuserinfo 用户点击该按钮时，会返回获取到的用户信息，从返回参数的detail中获取到的值同uni.getUserInfo
- * @event {Function} error 当使用开放能力时，发生错误的回调
- * @event {Function} opensetting 在打开授权设置页并关闭后回调
- * @event {Function} launchapp 打开 APP 成功的回调
- * @example <c-button>月落</c-button>
- */
+import themeProps from '../../libs/props/theme.js'
+import {customStyle, customClass} from '../../libs/props/common.js'
 export default {
   name: 'c-button',
   props: {
+    ...themeProps,
+    customStyle, 
+    customClass,
     // 是否细边框
+    text:{
+      type: [String, Number],
+      default: ''
+    },
     hairLine: {
       type: Boolean,
       default: true
@@ -102,7 +95,7 @@ export default {
       type: String,
       default: 'default'
     },
-    // 按钮形状，circle（两边为半圆），square（带圆角）
+    // 按钮形状，round（两边为半圆），square（带圆角）
     shape: {
       type: String,
       default: 'square'
@@ -111,6 +104,11 @@ export default {
     plain: {
       type: Boolean,
       default: false
+    },
+    // 模式选择，dark|light|plain
+    mode: {
+      type: String,
+      default: 'dark'
     },
     // 是否禁止状态
     disabled: {
@@ -199,13 +197,7 @@ export default {
       type: String,
       default: ''
     },
-    // 自定义样式，对象形式
-    customStyle: {
-      type: Object,
-      default() {
-        return {}
-      }
-    },
+    
     // 额外传参参数，用于小程序的data-xxx属性，通过target.dataset.name获取
     dataName: {
       type: String,
@@ -228,22 +220,66 @@ export default {
     }
   },
   computed: {
+    calcShape() {
+      if(this.round) return 'round'
+      else return this.shape
+    },
+    calcType() {
+      if (this.primary) {
+        return 'primary'
+      } else if (this.success) {
+        return 'success'
+      } else if (this.warning) {
+        return 'warning'
+      } else if (this.error) {
+        return 'error'
+      } else if (this.info) {
+        return 'info'
+      } else {
+        return this.type
+      }
+    },
+    calcMode() {
+      if (this.dark) {
+        return 'dark'
+      } else if (this.light) {
+        return 'light'
+      } else if (this.plain) {
+        return 'plain'
+      } else {
+        return this.mode
+      }
+    },
+    calcSize() {
+      
+      if (this.medium) {
+        return 'medium'
+      } else if (this.mini) {
+        return 'mini'
+      } else {
+        return this.size
+      }
+    },
     // 当没有传bgColor变量时，按钮按下去的颜色类名
     getHoverClass() {
       // 如果开启水波纹效果，则不启用hover-class效果
       if (this.loading || this.disabled || this.ripple || this.hoverClass)
         return ''
       let hoverClass = ''
-      hoverClass = this.plain
-        ? 'c-' + this.type + '-plain-hover'
-        : 'c-' + this.type + '-hover'
+      if(this.calcMode === 'dark') {
+        hoverClass = 'c-' + this.calcType + '-hover'
+      } else if (this.calcMode === 'light') {
+        hoverClass = 'c-' + this.calcType + '-plain-hover'
+      } else {
+        hoverClass = 'none'
+      }
+      
       return hoverClass
     },
     // 在'primary', 'success', 'error', 'warning'类型下，不显示边框，否则会造成四角有毛刺现象
     showHairLineBorder() {
       if (
-        ['primary', 'success', 'error', 'warning'].indexOf(this.type) >= 0 &&
-        !this.plain
+        ['primary', 'success', 'error', 'warning'].indexOf(this.calcType) >= 0 && this.calcMode === 'dark'
       ) {
         return ''
       } else {
@@ -280,7 +316,7 @@ export default {
     /**
      * @description: 查询按钮的节点信息
      * @return {*}
-     */    
+     */
     getWaveQuery(e) {
       this.getElQuery().then((res) => {
         // 查询返回的是一个数组节点
@@ -342,7 +378,7 @@ export default {
     getuserinfo(res) {
       this.$emit('getuserinfo', res)
     },
-    error(res) {
+    onError(res) {
       this.$emit('error', res)
     },
     opensetting(res) {
@@ -386,28 +422,33 @@ export default {
     background-color: #ffffff;
   }
 
-  &--primary {
+  &--primary--dark {
     color: #ffffff;
     border-color: $c-primary;
     background-color: $c-primary;
   }
 
-  &--success {
+  &--success--dark {
     color: #ffffff;
     border-color: $c-success;
     background-color: $c-success;
   }
 
-  &--error {
+  &--error--dark {
     color: #ffffff;
     border-color: $c-error;
     background-color: $c-error;
   }
 
-  &--warning {
+  &--warning--dark {
     color: #ffffff;
     border-color: $c-warning;
     background-color: $c-warning;
+  }
+  &--info--dark {
+    color: #ffffff;
+    border-color: $c-info;
+    background-color: $c-info;
   }
 
   &--default--disabled {
@@ -440,28 +481,62 @@ export default {
     background-color: $c-warning-disabled !important;
   }
 
-  &--primary--plain {
+  &--primary--light {
     color: $c-primary !important;
     border-color: $c-primary-disabled !important;
     background-color: $c-primary-light !important;
   }
 
-  &--success--plain {
+  &--success--light {
     color: $c-success !important;
     border-color: $c-success-disabled !important;
     background-color: $c-success-light !important;
   }
 
-  &--error--plain {
+  &--error--light {
     color: $c-error !important;
     border-color: $c-error-disabled !important;
     background-color: $c-error-light !important;
   }
 
-  &--warning--plain {
+  &--warning--light {
     color: $c-warning !important;
     border-color: $c-warning-disabled !important;
     background-color: $c-warning-light !important;
+  }
+  &--info--light {
+    color: $c-info !important;
+    border-color: $c-info-disabled !important;
+    background-color: $c-info-light !important;
+  }
+
+  &--primary--plain {
+    color: $c-primary !important;
+    border-color: $c-primary !important;
+    background-color: #FFFFFF !important;
+  }
+
+  &--success--plain {
+    color: $c-success !important;
+    border-color: $c-success !important;
+    background-color: #FFFFFF !important;
+  }
+
+  &--error--plain {
+    color: $c-error !important;
+    border-color: $c-error !important;
+    background-color: #FFFFFF !important;
+  }
+
+  &--warning--plain {
+    color: $c-warning !important;
+    border-color: $c-warning !important;
+    background-color: #FFFFFF !important;
+  }
+  &--info--plain {
+    color: $c-info !important;
+    border-color: $c-info !important;
+    background-color: #FFFFFF !important;
   }
 }
 
@@ -502,11 +577,11 @@ export default {
   transition: opacity 1s linear, transform 0.4s linear;
 }
 
-.c-round-circle {
+.c-round-round {
   border-radius: 100rpx;
 }
 
-.c-round-circle::after {
+.c-round-round::after {
   border-radius: 100rpx;
 }
 

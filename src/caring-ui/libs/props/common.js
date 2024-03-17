@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-02-04 10:48:18
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-02 17:02:27
+ * @LastEditTime: 2024-03-14 14:16:36
  * @Description: 公共props
  */
 
@@ -34,7 +34,16 @@ export const maskClickAble = {
   default: true
 }
 
-const safeAreaInsetBottom = {
+export const safeAreaInsetBottom = {
   type: Boolean,
   default: false
+}
+
+export const zoom = {
+  type: Boolean,
+  default: true
+}
+export const rounded = {
+  type: [String, Number],
+  default: 8
 }

@@ -2,14 +2,15 @@
  * @Author: Wanko
  * @Date: 2024-03-01 17:31:28
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-01 22:26:49
+ * @LastEditTime: 2024-03-17 14:59:30
  * @Description: 
 -->
 <template>
   <div class="p">
+    <c-section>基本使用</c-section>
     <c-cell-group title="标题">
       <c-cell-item title="基本使用" />
-      <c-cell-item title="基本使用" value="右侧内容" />
+      <c-cell-item title="基本使用" value="右侧内容" label="描述信息"/>
       <c-cell-item title="基本使用" value="右侧内容" icon="level" />
       <c-cell-item title="基本使用" value="右侧内容">
         <c-icon slot="icon" name="level" size="17" class="mr-5"/>
@@ -41,12 +42,6 @@
         <!-- <u-switch slot="right-icon" v-model="checked"></u-switch> -->
       </u-cell-item>
     </u-cell-group>
-
-    <div class="m">
-      <div class="h-40 border-t">111</div>
-      <c-gap />
-      <div class="h-40 u-border-top">111</div>
-    </div>
   </div>
 </template>
 

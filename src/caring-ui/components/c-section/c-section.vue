@@ -20,7 +20,9 @@
           :color="lineColor ? lineColor : color"
         ></c-icon>
       </view>
-      <text class="c-flex c-section__title__text">{{ title }}</text>
+      <text class="c-flex c-section__title__text">
+        <slot>{{ title }}</slot>
+      </text>
     </view>
     <view
       class="c-section__right-info"

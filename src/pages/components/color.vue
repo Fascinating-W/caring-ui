@@ -1,10 +1,10 @@
 <template>
   <div class="p">
     <div v-for="(i, index) in colors" :key="index">
-      <u-section :title="i.title" :right="false" />
+      <c-section>{{ i.title }}</c-section>
       <div class="flex-center py">
         <div
-          class="flex-1 p"
+          class="flex-1 p text-white"
           v-for="(j, index2) in i.item"
           :key="index2"
           :style="{ background: j.color }"
@@ -107,27 +107,6 @@ export default {
           ]
         },
         {
-          title: 'Info',
-          item: [
-            {
-              name: '$c.color.info',
-              color: uni.$c.color.info
-            },
-            {
-              name: '$c.color.infoDark',
-              color: uni.$c.color.infoDark
-            },
-            {
-              name: '$c.color.infoDisabled',
-              color: uni.$c.color.infoDisabled
-            },
-            {
-              name: '$c.color.infoLight',
-              color: uni.$c.color.infoLight
-            }
-          ]
-        },
-        {
           title: 'success',
           item: [
             {
@@ -192,15 +171,11 @@ export default {
   },
   methods: {
     handleClick(item) {
-      console.log(item.color)
       this.$c
         .showModal({
           title: item.color,
           content: item.name,
           confirmColor: item.color
-        })
-        .catch(() => {
-          console.log('cancel')
         })
     }
   }

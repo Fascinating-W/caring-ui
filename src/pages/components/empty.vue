@@ -2,49 +2,48 @@
  * @Author: Wanko
  * @Date: 2022-11-21 17:17:48
  * @LastEditors: Wanko
- * @LastEditTime: 2022-11-21 18:07:01
+ * @LastEditTime: 2024-03-03 15:28:30
  * @Description: 
 -->
 <template>
-  <div>
-    <!-- 基本使用，默认颜色 light -->
-    <c-empty/>
+  <div class="p">
+    <c-section>基本使用</c-section>
+    <div class="p">
+      <c-empty />
+    </div>
+    <c-section>设置模式</c-section>
+    <div class="p">
+      <c-empty mode="search" />
+    </div>
+    <c-section>设置图标大小 默认60px</c-section>
+    <div class="p">
+      <c-empty iconSize="100"/>
+    </div>
+    <c-section>设置图标颜色 支持主题色</c-section>
+    <div class="p">
+      <c-empty iconColor="success"/>
+    </div>
+    <c-section>设置字体大小</c-section>
+    <div class="p">
+      <c-empty fontSize="20"/>
+    </div>
+    <c-section>设置字体颜色，支持主题色</c-section>
+    <div class="p">
+      <c-empty color="pink" />
+    </div>
     
-    <!-- 通过mode设置不同图标 -->
-    <c-empty mode="search"/>
-
-    <!-- icon-size：改变大小图标，默认60px -->
-    <c-empty icon-size="80"/>
-
-    <!-- 改图标颜色 -->
-    <c-empty icon-color="pink"/>
-    <c-empty icon-color="success"/>
-
-    <!-- 改字体大小 -->
-    <c-empty font-size="20"/>
-
-    <!-- 改字体颜色 -->
-    <c-empty color="pink"/>
-    <c-empty color="success"/>
 
     <!-- 修改图标和文字颜色 -->
     <c-empty mode="search" color="primary" icon-color="primary"></c-empty>
 
     <!-- 自定义文字，两种写法 -->
-    <c-empty text="自定义文字"/>
+    <c-empty text="自定义文字" />
     <c-empty>自定义文字</c-empty>
-
-    
   </div>
 </template>
 
 <script>
-  export default {
-    
-
-  }
+export default {}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

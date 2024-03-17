@@ -67,7 +67,6 @@
 		},
 		watch: {
 			show(n) {
-				console.log('showww');
 				if(n && this.zoom) {
 					// 当展示遮罩的时候，设置scale为1，达到缩小(原来为1.2)的效果
 					this.zoomStyle.transform = 'scale(1, 1)';
