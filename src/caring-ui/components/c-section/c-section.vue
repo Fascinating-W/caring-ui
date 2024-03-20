@@ -146,7 +146,7 @@ export default {
   }
 
   &__right-info {
-    color: $c-tips-color;
+    color: $c-tips;
     font-size: 13px;
     display: flex;
     align-items: center;

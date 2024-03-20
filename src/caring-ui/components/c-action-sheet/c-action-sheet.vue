@@ -140,7 +140,7 @@ export default {
   text-align: center;
   padding: 34rpx 0;
   line-height: 1;
-  color: $c-tips-color;
+  color: $c-tips;
 }
 
 .c-action-sheet-item {
@@ -155,7 +155,7 @@ export default {
 
 .c-action-sheet-item__subtext {
   font-size: 24rpx;
-  color: $c-tips-color;
+  color: $c-tips;
   margin-top: 20rpx;
 }
 
@@ -165,6 +165,6 @@ export default {
 }
 
 .c-actionsheet-cancel {
-  color: $c-main-color;
+  color: $c-main;
 }
 </style>

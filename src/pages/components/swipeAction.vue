@@ -20,7 +20,7 @@
           :src="item.images"
           class="w-60 h-60 mr-10 rounded-12 flex-shrink-0"
         />
-        <div class="text-14 c-content-color">
+        <div class="text-14 c-content">
           {{ item.title }}
         </div>
       </div>

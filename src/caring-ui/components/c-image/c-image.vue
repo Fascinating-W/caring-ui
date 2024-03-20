@@ -232,7 +232,7 @@ export default {
     justify-content: center;
     font-size: 24px;
     background-color: $c-bg-color;
-    color: $c-tips-color;
+    color: $c-tips;
   }
 }
 </style>

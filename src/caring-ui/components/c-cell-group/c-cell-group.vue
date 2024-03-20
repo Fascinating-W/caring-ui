@@ -54,7 +54,7 @@ export default {
   padding: 15px 15px 5px;
   font-size: 15px;
   text-align: left;
-  color: $c-tips-color;
+  color: $c-tips;
 }
 .c-cell-item-box {
   background-color: #ffffff;

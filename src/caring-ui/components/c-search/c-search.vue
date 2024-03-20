@@ -17,9 +17,8 @@
       <view class="c-icon-wrap">
         <c-icon
           class="c-clear-icon"
-          :size="15"
-          :name="searchIcon"
-          :color="searchIconColor ? searchIconColor : color"
+          :name="icon"
+          :customStyle="iconStyle"
         ></c-icon>
       </view>
       <input
@@ -173,9 +172,9 @@ export default {
       default: '-1'
     },
     // 搜索图标的颜色，默认同输入框字体颜色
-    searchIconColor: {
+    iconColor: {
       type: String,
-      default: ''
+      default: uni.$c.color.content
     },
     // 输入框字体颜色
     color: {
@@ -187,11 +186,17 @@ export default {
       type: String,
       default: ''
     },
-
     // 左边输入框的图标，可以为uView图标名称或图片路径
-    searchIcon: {
+    icon: {
       type: String,
       default: 'search'
+    },
+    iconStyle: {
+      type: Object,
+      default: ()=>({
+        color: uni.$c.color.content,
+        fontSize: '15px'
+      })
     }
   },
   data() {
@@ -296,6 +301,9 @@ export default {
   flex: 1;
   transition: all 0.3s;
 }
+.c-placeholder-class  {
+  color: $c-light;
+}
 
 .c-content {
   display: flex;
@@ -314,7 +322,7 @@ export default {
   font-size: 28rpx;
   line-height: 1;
   margin: 0 10rpx;
-  color: $c-tips-color;
+  color: $c-tips;
 }
 
 .c-close-wrap {
@@ -330,7 +338,7 @@ export default {
 
 .c-action {
   font-size: 28rpx;
-  color: $c-main-color;
+  color: $c-main;
   width: 0;
   overflow: hidden;
   transition: all 0.3s;

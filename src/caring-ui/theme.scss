@@ -1,7 +1,7 @@
-$c-main-color: #303133;
-$c-content-color: #606266;
-$c-tips-color: #909399;
-$c-light-color: #c0c4cc;
+$c-main: #303133;
+$c-content: #606266;
+$c-tips: #909399;
+$c-light: #c0c4cc;
 $c-border-color: #e4e7ed;
 $c-bg-color: #f3f4f6;
 $c-disabled-color: #c8c9cc;
@@ -31,11 +31,14 @@ $c-info-disabled: #c8c9cc;
 $c-info-dark: #82848a;
 $c-info-light: #f4f4f5;
 
+$c-form-item-height: 35px;
+$c-form-item-border-color: #dcdfe6;
+
 :export {
-	main: $c-main-color;
-	content:$c-content-color;
-	tips: $c-tips-color;
-	light: $c-light-color;
+	main: $c-main;
+	content:$c-content;
+	tips: $c-tips;
+	light: $c-light;
 	border: $c-border-color;
 	bg: $c-bg-color;
 	disable: $c-disabled-color;

@@ -231,7 +231,7 @@ export default {
   padding: 6rpx 12rpx;
 }
 .c-mode-default {
-  color: $c-content-color;
+  color: $c-content;
   border: 1px solid #c0c4cc;
   background-color: #ffffff;
 }

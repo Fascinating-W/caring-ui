@@ -52,6 +52,34 @@ export default [
       {
         path: '/pages/components/Input',
         title: 'Input 输入框'
+      },
+      {
+        path: '/pages/components/Rate',
+        title: 'Rate 评分'
+      },
+      {
+        path: '/pages/components/Slider',
+        title: 'Slider 滑动选择器'
+      },
+      {
+        path: '/pages/components/Switch',
+        title: 'Switch 开关选择器'
+      },
+      {
+        path: '/pages/components/Select',
+        title: 'Select 列选择器'
+      },
+      {
+        path: '/pages/components/Picker',
+        title: 'Picker 选择器'
+      },
+      {
+        path: '/pages/components/Radio',
+        title: 'Radio 单选框'
+      },
+      {
+        path: '/pages/components/Checkbox',
+        title: 'Checkbox 复选框'
       }
     ]
   },
@@ -192,6 +220,10 @@ export default [
       {
         path: '/pages/components/Loadmore',
         title: 'Loadmore 加载更多'
+      },
+      {
+        path: '/pages/components/LoadingDot',
+        title: 'LoadingDot 加载点'
       }
     ]
   }

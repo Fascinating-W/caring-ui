@@ -2,13 +2,13 @@
  * @Author: Wanko
  * @Date: 2024-02-04 10:44:53
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-14 10:02:41
+ * @LastEditTime: 2024-03-19 15:36:59
  * @Description: 
 -->
 <template>
   <div
     class="c-mask"
-    :class="{ 'c-mask-zoom': zoom }"
+    :class="{ 'c-mask-zoom': zoom, 'c-mask-filter': filter}"
     :style="[maskStyle, zoomStyle]"
     @tap="onClick"
     @touchmove.stop.prevent="() => {}"
@@ -34,7 +34,11 @@ export default {
     customStyle,
     duration,
     maskClickAble,
-    zoom
+    zoom,
+    filter: {
+      type: Boolean,
+      default: true
+    }
   },
   data() {
     return {
@@ -43,6 +47,8 @@ export default {
       },
       scale: 'scale(1.2, 1.2)'
     }
+  },
+  mounted(){
   },
   computed: {
     maskStyle() {
@@ -83,6 +89,10 @@ export default {
   bottom: 0;
   opacity: 0;
   transition: transform 0.3s;
+}
+.c-mask-filter {
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }
 .c-mask-zoom {
   transform: scale(1.2, 1.2);

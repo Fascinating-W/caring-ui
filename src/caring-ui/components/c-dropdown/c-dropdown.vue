@@ -231,7 +231,7 @@
 
 				&__text {
 					font-size: 28rpx;
-					color: $c-content-color;
+					color: $c-content;
 				}
 
 				&__arrow {

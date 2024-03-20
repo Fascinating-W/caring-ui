@@ -121,7 +121,7 @@
 		flex-direction: column;
 		justify-content: center;
 		background-color: #E1E1E1;
-		color: $c-content-color;
+		color: $c-content;
 		align-items: center;
 		transition: opacity 0.4s;
 		

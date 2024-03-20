@@ -313,7 +313,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $c-main-color;
+  color: $c-main;
   padding: 0 6rpx;
 }
 
@@ -339,7 +339,7 @@ export default {
 
 .c-item-text {
   transition: all 0.35s;
-  color: $c-main-color;
+  color: $c-main;
   display: flex;
   align-items: center;
   position: relative;

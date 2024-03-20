@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-02-04 10:48:18
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-14 14:16:36
+ * @LastEditTime: 2024-03-19 16:04:27
  * @Description: 公共props
  */
 
@@ -36,7 +36,7 @@ export const maskClickAble = {
 
 export const safeAreaInsetBottom = {
   type: Boolean,
-  default: false
+  default: true
 }
 
 export const zoom = {

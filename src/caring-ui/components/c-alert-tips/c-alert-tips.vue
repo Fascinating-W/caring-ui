@@ -208,13 +208,13 @@
 
 	.c-alert-title {
 		font-size: 28rpx;
-		color: $c-main-color;
+		color: $c-main;
 	}
 
 	.c-alert-desc {
 		font-size: 26rpx;
 		text-align: left;
-		color: $c-content-color;
+		color: $c-content;
 	}
 
 	.c-close-icon {
@@ -229,7 +229,7 @@
 	
 	.c-close-text {
 		font-size: 24rpx;
-		color: $c-tips-color;
+		color: $c-tips;
 		position: absolute;
 		top: 20rpx;
 		right: 20rpx;

@@ -185,7 +185,7 @@ export default {
   align-items: center;
   justify-content: center;
   font-size: 28rpx;
-  color: $c-content-color;
+  color: $c-content;
   border-radius: 10px;
   position: relative;
 

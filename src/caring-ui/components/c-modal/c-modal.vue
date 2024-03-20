@@ -221,7 +221,7 @@ import {value, zIndex} from '../../libs/props/common.js'
 			padding-top: 48rpx;
 			font-weight: 500;
 			text-align: center;
-			color: $c-main-color;
+			color: $c-main;
 		}
 
 		&__content {
@@ -229,7 +229,7 @@ import {value, zIndex} from '../../libs/props/common.js'
 				padding: 48rpx;
 				font-size: 30rpx;
 				text-align: center;
-				color: $c-content-color;
+				color: $c-content;
 			}
 		}
 

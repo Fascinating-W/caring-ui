@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-02-04 10:29:29
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-14 10:14:07
+ * @LastEditTime: 2024-03-19 15:32:04
  * @Description: 
 -->
 <template>
@@ -10,13 +10,14 @@
     <c-section>基本使用</c-section>
     <div class="p">
       <button @click="showMask = true">打开mask</button>
-      <c-mask v-model="showMask" />
+      <c-mask v-model="showMask" filter/>
     </div>
     <c-section>设置自定义背景色</c-section>
     <div class="p">
-      <button @click="showMask1 = true">打开mask</button>
+      <button @click="showMask1 = true" >打开mask</button>
       <c-mask
         v-model="showMask1"
+        filter
         :customStyle="{ background: 'rgba(0, 0, 0, 0.2)' }"
       />
     </div>

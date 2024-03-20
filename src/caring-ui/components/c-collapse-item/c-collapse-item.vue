@@ -194,7 +194,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: $c-main-color;
+  color: $c-main;
   font-size: 30rpx;
   line-height: 1;
   padding: 24rpx 0;
@@ -225,7 +225,7 @@ export default {
 .c-collapse-content {
   overflow: hidden;
   font-size: 28rpx;
-  color: $c-tips-color;
+  color: $c-tips;
   text-align: left;
 }
 </style>

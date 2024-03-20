@@ -285,6 +285,54 @@
       }
     },
     {
+      "path": "pages/components/Rate",
+      "style": {
+        "navigationBarTitleText": "Rate 评分"
+      }
+    },
+    {
+      "path": "pages/components/Select",
+      "style": {
+        "navigationBarTitleText": "Select 列选择器"
+      }
+    },
+    {
+      "path": "pages/components/Slider",
+      "style": {
+        "navigationBarTitleText": "Slider 滑动选择器"
+      }
+    },
+    {
+      "path": "pages/components/Switch",
+      "style": {
+        "navigationBarTitleText": "Switch 开关选择器"
+      }
+    },
+    {
+      "path": "pages/components/LoadingDot",
+      "style": {
+        "navigationBarTitleText": "LoadingDot 加载点"
+      }
+    },
+    {
+      "path": "pages/components/Picker",
+      "style": {
+        "navigationBarTitleText": "Picker 选择器"
+      }
+    },
+    {
+      "path": "pages/components/Radio",
+      "style": {
+        "navigationBarTitleText": "Radio 单选器"
+      }
+    },
+    {
+      "path": "pages/components/Checkbox",
+      "style": {
+        "navigationBarTitleText": "Checkbox 复选框"
+      }
+    },
+    {
       "path": "pages/template/one",
       "style": {
         "navigationBarTitleText": "模版",

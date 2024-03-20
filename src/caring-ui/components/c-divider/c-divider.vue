@@ -88,7 +88,7 @@ export default {
   overflow: hidden;
   flex-direction: row;
 	font-size: 13px;
-	color: $c-tips-color
+	color: $c-tips
 }
 
 .c-divider-line {

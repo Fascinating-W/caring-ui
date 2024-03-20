@@ -417,7 +417,7 @@ export default {
   }
 
   &--default {
-    color: $c-content-color;
+    color: $c-content;
     border-color: #c0c4cc;
     background-color: #ffffff;
   }

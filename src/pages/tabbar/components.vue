@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-04-06 10:45:37
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-17 14:52:54
+ * @LastEditTime: 2024-03-19 15:44:46
  * @Description: 
 -->
 <template>
@@ -30,12 +30,29 @@
         h5NavHeight="0"
       >
         <div :style="{ width: width }" class="search">
-          <c-search bgColor="#fff" borderColor="#e1d7f0" disabled round></c-search>
+          <c-search
+            bgColor="#fff"
+            borderColor="#e1d7f0"
+            v-model="key"
+            @input="$c.debounce(onSearch, 500)"
+            round
+          ></c-search>
         </div>
       </c-sticky>
     </div>
     <div class="relative p">
+      <template v-if="key">
+        <c-cell-item
+          :customStyle="{ borderRadius: '12px', marginBottom: '10px'}"
+          :title="i.title"
+          v-for="(i, idx) in searchList"
+          @click="$c.route(i.path)"
+          :key="idx"
+          arrow
+        ></c-cell-item>
+      </template>
       <c-collapse
+        v-else
         :headStyle="{
           padding: '20px',
           color: '#666',
@@ -82,6 +99,8 @@ menuButtonInfo = uni.getMenuButtonBoundingClientRect()
 export default {
   data() {
     return {
+      key: '',
+      searchList: [],
       list,
       menuButtonInfo: menuButtonInfo,
       background: {
@@ -93,7 +112,7 @@ export default {
       navbarBgColor: 'rgba(0, 0, 0, 0)',
       height: 0,
       opacity: 1,
-      offsetTop: 0,
+      offsetTop: 0
     }
   },
   onLoad() {
@@ -105,7 +124,7 @@ export default {
     // #ifdef H5
     this.offsetTop = 10
     // #endif
-    
+
     this.maxHeight = uni.getSystemInfoSync().statusBarHeight + height
     this.height = uni.getSystemInfoSync().statusBarHeight + height
     console.log(this.height)
@@ -120,6 +139,12 @@ export default {
     this.getNavBarBgColor()
   },
   methods: {
+    onSearch(){
+      console.log(this.key);
+      const list = this.list.flatMap(i => i.list)
+      const result = list.filter(i => i.title.toLowerCase().includes(this.key))
+      this.searchList = result
+    },
     getNavBarBgColor() {
       // 根据下拉距离，计算导航栏背景颜色
       const width = menuButtonInfo.left - 20

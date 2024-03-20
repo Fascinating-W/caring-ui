@@ -1,52 +1,84 @@
 <template>
-	<view
-		@tap="click"
-		class="c-cell"
-		:class="{ 'border-b': borderBottom, 'border-t': borderTop, 'flex-center': center, 'c-cell--required': required }"
-		hover-stay-time="150"
-		:hover-class="hoverClass"
-		:style="{
-			backgroundColor: bgColor
-		}"
-	>
-		<c-icon :size="iconSize" :name="icon" v-if="icon" :custom-style="iconStyle" class="c-cell__left-icon-wrap"></c-icon>
-		<view class="flex-center " v-else>
-			<slot name="icon"></slot>
-		</view>
-		<view
-			class="c-cell_title"
-			:style="[
-				{
-					width: titleWidth ? titleWidth + 'rpx' : 'auto'
-				},
-				titleStyle
-			]"
-		>
-			<block v-if="title !== ''">{{ title }}</block>
-			<slot name="title" v-else></slot>
+  <view
+    @tap="click"
+    class="c-cell"
+    :class="[{
+      'border-b': borderBottom,
+      'border-t': borderTop,
+      'flex-center': center,
+      'c-cell--required': required
+    }, customClass]"
+    hover-stay-time="150"
+    :hover-class="hoverClass"
+    :style="[{
+      backgroundColor: bgColor
+    }, customStyle]"
+  >
+    <c-icon
+      :size="iconSize"
+      :name="icon"
+      v-if="icon"
+      :custom-style="iconStyle"
+      class="c-cell__left-icon-wrap"
+    ></c-icon>
+    <view class="flex-center" v-else>
+      <slot name="icon"></slot>
+    </view>
+    <view
+      class="c-cell_title"
+      :style="[
+        {
+          width: titleWidth ? titleWidth + 'rpx' : 'auto'
+        },
+        titleStyle
+      ]"
+    >
+      <block v-if="title !== ''">{{ title }}</block>
+      <slot name="title" v-else></slot>
 
-			<view class="c-cell__label" v-if="label || $slots.label" :style="[labelStyle]">
-				<block v-if="label !== ''">{{ label }}</block>
-				<slot name="label" v-else></slot>
-			</view>
-		</view>
+      <view
+        class="c-cell__label"
+        v-if="label || $slots.label"
+        :style="[labelStyle]"
+      >
+        <block v-if="label !== ''">{{ label }}</block>
+        <slot name="label" v-else></slot>
+      </view>
+    </view>
 
-		<view class="c-cell__value" :style="[valueStyle]">
-			<block class="c-cell__value" v-if="value !== ''">{{ value }}</block>
-			<slot v-else></slot>
-		</view>
-		<view class="flex-center c-cell_right" v-if="$slots['right-icon']">
-			<slot name="right-icon"></slot>
-		</view>
-		<c-icon v-if="arrow" name="arrow-right" :style="[arrowStyle]" class="flex-center c-cell__right-icon-wrap"></c-icon>
-	</view>
+    <view class="c-cell__value" :style="[valueStyle]">
+      <template v-if="type === 'default'">
+        <block class="c-cell__value" v-if="value !== ''">{{ value }}</block>
+        <slot v-else></slot
+      ></template>
+			<template v-if="type === 'switch'">
+				<div>
+					<c-switch/>
+				</div>
+			</template>
+    </view>
+    <view class="flex-center c-cell_right" v-if="$slots['right-icon']">
+      <slot name="right-icon"></slot>
+    </view>
+    <c-icon
+      v-if="arrow"
+      name="arrow-right"
+      :style="[arrowStyle]"
+      class="flex-center c-cell__right-icon-wrap"
+    ></c-icon>
+  </view>
 </template>
 
 <script>
-
+import {customStyle, customClass} from '../../libs/props/common.js'
 export default {
 	name: 'c-cell-item',
 	props: {
+		customStyle, customClass,
+		type: {
+			type: String,
+			default: 'default'
+		},
 		// 左侧图标名称(只能uView内置图标)，或者图标src
 		icon: {
 			type: String,
@@ -137,7 +169,7 @@ export default {
 		// 背景颜色
 		bgColor: {
 			type: String,
-			default: 'transparent'
+			default: '#fff'
 		},
 		// 用于识别被点击的是第几个cell
 		index: {
@@ -186,106 +218,106 @@ export default {
 
 <style lang="scss" scoped>
 .c-cell {
-	display: flex;
-	align-items: center;
-	position: relative;
-	/* #ifndef APP-NVUE */
-	box-sizing: border-box;
-	/* #endif */
-	width: 100%;
-	padding: 26rpx 32rpx;
-	font-size: 28rpx;
-	line-height: 54rpx;
-	color: $c-content-color;
-	background-color: #fff;
-	text-align: left;
+  display: flex;
+  align-items: center;
+  position: relative;
+  /* #ifndef APP-NVUE */
+  box-sizing: border-box;
+  /* #endif */
+  width: 100%;
+  padding: 26rpx 32rpx;
+  font-size: 28rpx;
+  line-height: 54rpx;
+  color: $c-content;
+  background-color: #fff;
+  text-align: left;
 }
 
 .c-cell_title {
-	font-size: 28rpx;
+  font-size: 28rpx;
 }
 
 .c-cell__left-icon-wrap {
-	margin-right: 10rpx;
-	font-size: 32rpx;
+  margin-right: 10rpx;
+  font-size: 32rpx;
 }
 
 .c-cell__right-icon-wrap {
-	margin-left: 10rpx;
-	color: #969799;
-	font-size: 28rpx;
+  margin-left: 10rpx;
+  color: #969799;
+  font-size: 28rpx;
 }
 
 .c-cell__left-icon-wrap,
 .c-cell__right-icon-wrap {
-	display: flex;
-	align-items: center;
-	height: 48rpx;
+  display: flex;
+  align-items: center;
+  height: 48rpx;
 }
 
 .c-cell-border:after {
-	position: absolute; 
-	/* #ifndef APP-NVUE */
-	box-sizing: border-box;
-	content: ' ';
-	pointer-events: none;
-	border-bottom: 1px solid $c-border-color;
-	/* #endif */
-	right: 0;
-	left: 0;
-	top: 0;
-	transform: scaleY(0.5);
+  position: absolute;
+  /* #ifndef APP-NVUE */
+  box-sizing: border-box;
+  content: ' ';
+  pointer-events: none;
+  border-bottom: 1px solid $c-border-color;
+  /* #endif */
+  right: 0;
+  left: 0;
+  top: 0;
+  transform: scaleY(0.5);
 }
 
 .c-cell-border {
-	position: relative;
+  position: relative;
 }
 
 .c-cell__label {
-	margin-top: 6rpx;
-	font-size: 26rpx;
-	line-height: 36rpx;
-	color: $c-tips-color;
-	/* #ifndef APP-NVUE */
-	word-wrap: break-word;
-	/* #endif */
+  margin-top: 6rpx;
+  font-size: 26rpx;
+  line-height: 36rpx;
+  color: $c-tips;
+  /* #ifndef APP-NVUE */
+  word-wrap: break-word;
+  /* #endif */
 }
 
 .c-cell__value {
-	overflow: hidden;
-	text-align: right;
-	/* #ifndef APP-NVUE */
-	vertical-align: middle;
-	/* #endif */
-	color: $c-tips-color;
-	font-size: 26rpx;
+  overflow: hidden;
+  text-align: right;
+  /* #ifndef APP-NVUE */
+  vertical-align: middle;
+  /* #endif */
+  color: $c-tips;
+  font-size: 26rpx;
 }
 
 .c-cell__title,
 .c-cell__value {
-	flex: 1;
+  flex: 1;
 }
 
 .c-cell--required {
-	/* #ifndef APP-NVUE */
-	overflow: visible;
-	/* #endif */
-	display: flex;
-	align-items: center;
+  /* #ifndef APP-NVUE */
+  overflow: visible;
+  /* #endif */
+  display: flex;
+  align-items: center;
 }
 
 .c-cell--required:before {
-	position: absolute;
-	/* #ifndef APP-NVUE */
-	content: '*';
-	/* #endif */
-	left: 8px;
-	margin-top: 4rpx;
-	font-size: 14px;
-	color: $c-error;
+  position: absolute;
+  /* #ifndef APP-NVUE */
+  content: '*';
+  /* #endif */
+  left: 8px;
+  margin-top: 4rpx;
+  font-size: 14px;
+  color: $c-error;
 }
 
 .c-cell_right {
-	line-height: 1;
+  line-height: 1;
 }
 </style>

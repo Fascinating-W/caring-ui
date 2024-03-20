@@ -352,14 +352,14 @@ export default {
   &__input {
     //height: $c-form-item-height;
     font-size: 28rpx;
-    color: $c-main-color;
+    color: $c-main;
     flex: 1;
   }
 
   &__textarea {
     width: auto;
     font-size: 28rpx;
-    color: $c-main-color;
+    color: $c-main;
     padding: 10rpx 0;
     line-height: normal;
     flex: 1;
