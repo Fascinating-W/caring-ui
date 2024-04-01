@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-04-06 10:45:37
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-19 15:44:46
+ * @LastEditTime: 2024-04-01 18:34:57
  * @Description: 
 -->
 <template>
@@ -32,7 +32,7 @@
         <div :style="{ width: width }" class="search">
           <c-search
             bgColor="#fff"
-            borderColor="#e1d7f0"
+            borderColor="#f9d7ea"
             v-model="key"
             @input="$c.debounce(onSearch, 500)"
             round
@@ -42,14 +42,14 @@
     </div>
     <div class="relative p">
       <template v-if="key">
-        <c-cell-item
-          :customStyle="{ borderRadius: '12px', marginBottom: '10px'}"
+        <c-cell
+          :customStyle="{ borderRadius: '12px', marginBottom: '10px' }"
           :title="i.title"
           v-for="(i, idx) in searchList"
           @click="$c.route(i.path)"
           :key="idx"
           arrow
-        ></c-cell-item>
+        ></c-cell>
       </template>
       <c-collapse
         v-else
@@ -72,7 +72,7 @@
         >
           <div class="p">
             <c-cell-group>
-              <c-cell-item
+              <c-cell
                 :title="j.title"
                 :key="jdx"
                 v-for="(j, jdx) in i.list"
@@ -117,21 +117,15 @@ export default {
   },
   onLoad() {
     let height = uni.getSystemInfoSync().platform == 'ios' ? 44 : 48
-
+    this.maxHeight = uni.getSystemInfoSync().statusBarHeight + height
     // #ifdef MP-WEIXIN
-    this.offsetTop = height
+    this.offsetTop = this.maxHeight + 5
     // #endif
     // #ifdef H5
     this.offsetTop = 10
     // #endif
 
-    this.maxHeight = uni.getSystemInfoSync().statusBarHeight + height
-    this.height = uni.getSystemInfoSync().statusBarHeight + height
-    console.log(this.height)
-
-    console.log(menuButtonInfo)
     this.width = menuButtonInfo.left - 20
-    console.log(this.width, '0000')
   },
   onPageScroll(event) {
     // console.log(event)
@@ -139,10 +133,12 @@ export default {
     this.getNavBarBgColor()
   },
   methods: {
-    onSearch(){
-      console.log(this.key);
-      const list = this.list.flatMap(i => i.list)
-      const result = list.filter(i => i.title.toLowerCase().includes(this.key))
+    onSearch() {
+      console.log(this.key)
+      const list = this.list.flatMap((i) => i.list)
+      const result = list.filter((i) =>
+        i.title.toLowerCase().includes(this.key)
+      )
       this.searchList = result
     },
     getNavBarBgColor() {

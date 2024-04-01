@@ -132,7 +132,7 @@
       "path": "pages/components/Navbar",
       "style": {
         "navigationBarTitleText": "Navbar 导航栏",
-        "navigationStyle":"custom"
+        "navigationStyle": "custom"
       }
     },
     {
@@ -233,7 +233,7 @@
       "path": "pages/components/Sticky",
       "style": {
         "navigationBarTitleText": "Sticky 吸顶",
-        "navigationStyle":"custom"
+        "navigationStyle": "custom"
       }
     },
     {
@@ -330,6 +330,60 @@
       "path": "pages/components/Checkbox",
       "style": {
         "navigationBarTitleText": "Checkbox 复选框"
+      }
+    },
+    {
+      "path": "pages/components/VerifyCode",
+      "style": {
+        "navigationBarTitleText": "VerifyCode 验证码倒计时"
+      }
+    },
+    {
+      "path": "pages/components/NumberBox",
+      "style": {
+        "navigationBarTitleText": "NumberBox 步进器"
+      }
+    },
+    {
+      "path": "pages/components/Upload",
+      "style": {
+        "navigationBarTitleText": "Upload 上传"
+      }
+    },
+    {
+      "path": "pages/components/Progress",
+      "style": {
+        "navigationBarTitleText": "Progress 进度条"
+      }
+    },
+    {
+      "path": "pages/components/Calendar",
+      "style": {
+        "navigationBarTitleText": "Calendar 日历"
+      }
+    },
+    {
+      "path": "pages/components/Keyboard",
+      "style": {
+        "navigationBarTitleText": "Keyboard 键盘"
+      }
+    },
+    {
+      "path": "pages/components/ReadMore",
+      "style": {
+        "navigationBarTitleText": "ReadMore 展开阅读更多"
+      }
+    },
+    {
+      "path": "pages/components/MessageInput",
+      "style": {
+        "navigationBarTitleText": "MessageInput 验证码输入"
+      }
+    },
+    {
+      "path": "pages/components/Form",
+      "style": {
+        "navigationBarTitleText": "Form 表单"
       }
     },
     {

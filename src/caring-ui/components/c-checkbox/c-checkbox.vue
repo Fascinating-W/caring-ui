@@ -236,6 +236,9 @@
 				line-height: 0;
 			}
 			/* #endif */
+      &__icon {
+				display: flex;
+			}
 			
 			&--round {
 				border-radius: 100%;

@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-03-03 13:22:03
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-16 16:17:07
+ * @LastEditTime: 2024-03-22 18:36:00
  * @Description: 
 -->
 <template>
@@ -40,10 +40,13 @@
 <script>
 import { customClass, customStyle } from '../../libs/props/common.js'
 import themeProps from '../../libs/props/theme.js'
+import typeProps from '../../libs/props/type.js'
 export default {
   name: 'c-tag',
   // 是否禁用这个标签，禁用的话，会屏蔽点击事件
+  mixins: [typeProps],
   props: {
+    ...typeProps,
     ...themeProps,
     customClass,
     customStyle,
@@ -122,21 +125,7 @@ export default {
         return this.shape
       }
     },
-    calcType() {
-      if (this.primary) {
-        return 'primary'
-      } else if (this.success) {
-        return 'success'
-      } else if (this.warning) {
-        return 'warning'
-      } else if (this.error) {
-        return 'error'
-      } else if (this.info) {
-        return 'info'
-      } else {
-        return this.type
-      }
-    },
+    
     calcMode() {
       if (this.dark) {
         return 'dark'
@@ -172,7 +161,6 @@ export default {
     iconStyle() {
       if (!this.closeable) return
       let style = {}
-			console.log(this.calcType, '----');
       if (this.calcSize == 'mini') style.fontSize = '20rpx'
       else style.fontSize = '22rpx'
       if (this.calcMode == 'plain' || this.calcMode == 'light')

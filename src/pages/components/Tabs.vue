@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-03-15 09:33:14
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-15 11:06:45
+ * @LastEditTime: 2024-03-23 12:08:32
  * @Description: 
 -->
 
@@ -10,6 +10,7 @@
   <div class="p">
     <c-section>基本使用</c-section>
     <div class="p">
+      <u-tabs :list="list" :current="current" @change="change" :is-scroll="false"></u-tabs>
       <c-tabs :list="list" :current="current" @change="change"></c-tabs>
     </div>
     <c-section>贴左展示</c-section>

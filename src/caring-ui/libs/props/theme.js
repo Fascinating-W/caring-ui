@@ -2,30 +2,10 @@
  * @Author: Wanko
  * @Date: 2024-03-03 16:50:30
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-16 16:17:09
+ * @LastEditTime: 2024-03-22 16:51:51
  * @Description: 
  */
 export default {
-  primary: {
-    type: Boolean,
-    default: false
-  },
-  success: {
-    type: Boolean,
-    default: false
-  },
-  info: {
-    type: Boolean,
-    default: false
-  },
-  warning: {
-    type: Boolean,
-    default: false
-  },
-  error: {
-    type: Boolean,
-    default: false
-  },
   dark: {
     type: Boolean,
     default: false

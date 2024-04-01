@@ -287,7 +287,7 @@ export default {
       // 当前活动item的中点点到左边的距离减去滑块宽度的一半，即可得到滑块所需的移动距离
       let left = tabInfo.left + tabInfo.width / 2 - this.parentLeft
       // 计算当前活跃item到组件左边的距离
-      this.scrollBarLeft = left - uni.upx2px(this.barWidth) / 2
+      this.scrollBarLeft = left - this.barWidth / 2
       // 第一次移动滑块的时候，barFirstTimeMove为true，放到延时中将其设置false
       // 延时是因为scrollBarLeft作用于computed计算时，需要一个过程需，否则导致出错
       if (this.barFirstTimeMove == true) {

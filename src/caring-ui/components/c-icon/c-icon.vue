@@ -96,12 +96,12 @@ export default {
 		// label的大小
 		labelSize: {
 			type: [String, Number],
-			default: '14'
+			default: uni.$c.color.content
 		},
 		// label的颜色
 		labelColor: {
 			type: String,
-			default: '#606266'
+			default: 'red'
 		},
 		// label与图标的距离(横向排列)
 		marginLeft: {
@@ -167,7 +167,7 @@ export default {
 		iconClass() {
 			let classes = []
 			classes.push(this.customPrefix + '-' + this.name)
-			// uView的自定义图标类名为c-iconfont
+			// caring-ui的自定义图标类名为c-iconfont
 			if (this.customPrefix == 'cicon') {
 				classes.push('c-iconfont')
 			} else {
@@ -184,7 +184,6 @@ export default {
 			//#endif
 			return classes
 		},
-     
 		iconStyle() {
 			let style = {}
 			style = {
@@ -229,7 +228,7 @@ export default {
 		decimalIconClass() {
 			let classes = []
 			classes.push(this.customPrefix + '-' + this.name)
-			// uView的自定义图标类名为c-iconfont
+			// caring-ui的自定义图标类名为c-iconfont
 			if (this.customPrefix == 'cicon') {
 				classes.push('c-iconfont')
 			} else {
@@ -328,4 +327,4 @@ export default {
     line-height: 1;
   }
 }
-</style>../../libs/props/common.js
+</style>

@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-11-22 14:14:37
  * @LastEditors: Wanko
- * @LastEditTime: 2022-12-03 16:26:37
+ * @LastEditTime: 2024-03-29 15:04:33
  * @Description: 
 -->
 <template>
@@ -18,7 +18,7 @@
       @load="onLoadHandler"
       @error="onErrorHandler"
       :style="{
-        borderRadius: circle ? '50%' : $c.addUnit(radius)
+        borderRadius: round ? '50%' : $c.addUnit(rounded)
       }"
       :lazy-load="lazyLoad"
       :show-menu-by-longpress="showMenuByLongpress"
@@ -27,7 +27,7 @@
       v-if="showLoading && loading"
       class="c-image__loading"
       :style="{
-        borderRadius: circle ? '50%' : $u.addUnit(radius),
+        borderRadius: round ? '50%' : $c.addUnit(rounded),
         backgroundColor: this.bgColor
       }"
     >
@@ -39,7 +39,7 @@
       v-if="showError && isError && !loading"
       class="c-image__error"
       :style="{
-        borderRadius: circle ? '50%' : $c.addUnit(radius)
+        borderRadius: round ? '50%' : $c.addUnit(rounded)
       }"
     >
       <slot v-if="$slots.error" name="error" />
@@ -73,12 +73,12 @@ export default {
       default: '100%'
     },
     // 是否圆形
-    circle: {
+    round: {
       type: Boolean,
       default: false
     },
     // 圆角，单位任意
-    radius: {
+    rounded: {
       type: [String, Number],
       default: 0
     },
@@ -110,7 +110,7 @@ export default {
     // 加载失败的图标，或者小图片
     errorIcon: {
       type: String,
-      default: 'error-circle'
+      default: 'error-round'
     },
     // 是否显示加载错误的图标或者自定义的slot
     showError: {
@@ -161,9 +161,9 @@ export default {
       style.width = this.$c.addUnit(this.width)
       style.height = this.$c.addUnit(this.height)
       // 如果是配置了圆形，设置50%的圆角，否则按照默认的配置值
-      style.borderRadius = this.circle ? '50%' : this.$c.addUnit(this.radius)
+      style.borderRadius = this.round ? '50%' : this.$c.addUnit(this.rounded)
       // 如果设置圆角，必须要有hidden，否则可能圆角无效
-      style.overflow = this.radius > 0 ? 'hidden' : 'visible'
+      style.overflow = this.rounded > 0 ? 'hidden' : 'visible'
       if (this.fade) {
         style.opacity = this.opacity
         style.transition = `opacity ${

@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-02-04 15:12:40
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-08 11:40:21
+ * @LastEditTime: 2024-04-01 17:49:26
  * @Description: 
 -->
 <template>
@@ -23,6 +23,7 @@
       :maskClickAble="false"
       v-model="showMask"
       @click="maskClick"
+      :filter="filter"
     />
     <view
       class="c-drawer-content"
@@ -79,7 +80,8 @@ import {
   customStyle,
   maskClickAble,
   duration,
-  safeAreaInsetBottom
+  safeAreaInsetBottom,
+  filter
 } from '../../libs/props/common.js'
 
 export default {
@@ -90,6 +92,7 @@ export default {
     maskClickAble,
     duration,
     safeAreaInsetBottom,
+    filter,
     /**
      * 弹出方向，left|right|top|bottom|center
      */
@@ -156,12 +159,12 @@ export default {
     // 关闭图标的颜色
     closeIconColor: {
       type: String,
-      default: '#909399'
+      default: uni.$c.color.tips
     },
-    // 关闭图标的大小，单位rpx
+    // 关闭图标的大小，单位px
     closeIconSize: {
       type: [String, Number],
-      default: '30'
+      default: '15'
     },
     // 宽度，只对左，右，中部弹出时起作用，单位rpx，或者"auto"
     // 或者百分比"50%"，表示由内容撑开高度或者宽度，优先级高于length参数

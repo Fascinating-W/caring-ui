@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-03-02 11:55:06
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-16 16:17:25
+ * @LastEditTime: 2024-03-22 16:58:10
  * @Description: 
 -->
 <template>
@@ -69,9 +69,11 @@
 
 <script>
 import themeProps from '../../libs/props/theme.js'
+import typeProps from '../../libs/props/type.js'
 import {customStyle, customClass} from '../../libs/props/common.js'
 export default {
   name: 'c-button',
+  mixins: [typeProps],
   props: {
     ...themeProps,
     customStyle, 
@@ -223,21 +225,6 @@ export default {
     calcShape() {
       if(this.round) return 'round'
       else return this.shape
-    },
-    calcType() {
-      if (this.primary) {
-        return 'primary'
-      } else if (this.success) {
-        return 'success'
-      } else if (this.warning) {
-        return 'warning'
-      } else if (this.error) {
-        return 'error'
-      } else if (this.info) {
-        return 'info'
-      } else {
-        return this.type
-      }
     },
     calcMode() {
       if (this.dark) {

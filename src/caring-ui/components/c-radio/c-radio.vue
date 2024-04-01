@@ -26,7 +26,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'c-radio',
   props: {
@@ -255,6 +254,9 @@ export default {
       line-height: 0;
     }
     /* #endif */
+    &__icon {
+      display: flex;
+    }
 
     &--circle {
       border-radius: 100%;

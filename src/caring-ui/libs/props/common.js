@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-02-04 10:48:18
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-19 16:04:27
+ * @LastEditTime: 2024-04-01 17:48:49
  * @Description: 公共props
  */
 
@@ -46,4 +46,8 @@ export const zoom = {
 export const rounded = {
   type: [String, Number],
   default: 8
+}
+export const filter = {
+  type: Boolean,
+  default: false
 }

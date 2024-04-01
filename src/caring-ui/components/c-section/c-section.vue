@@ -1,5 +1,5 @@
 <template>
-  <view class="c-section">
+  <view class="c-section" :class="customClass">
     <view
       class="c-section__title"
       :style="sectionStyle"
@@ -44,11 +44,12 @@
 
 <script>
 import { calcColor } from '../../libs/helper/utils.js'
-
+import {customClass, customStyle} from '../../libs/props/common.js'
 export default {
   name: 'c-section',
   props: {
-    // 标题信息
+    customClass, 
+    customStyle,
     title: {
       type: String,
       default: ''

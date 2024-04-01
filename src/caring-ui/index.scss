@@ -45,3 +45,76 @@ uni-toast .uni-toast {
 }
 /* #endif */
 /* end--提升H5端uni.toast()的层级，避免被uView的modal等遮盖--end */
+
+/* start--微信小程序编译后页面有组件名的元素，特别处理--start */
+/* #ifdef MP-WEIXIN || MP-QQ */
+c-td, c-th {
+	flex: 1;
+	align-self: stretch;
+}
+
+.c-td {
+	height: 100%;
+}
+
+c-icon {
+	display: inline-flex;
+	align-items: center;
+}
+
+// 各家小程序宫格组件外层设置为100%，避免受到父元素display: flex;的影响
+c-grid {
+	width: 100%;
+	flex: 0 0 100%;
+}
+
+// 避免小程序线条组件因为父组件display: flex;而失效
+c-line {
+	flex: 1;
+}
+
+c-switch {
+	display: inline-flex;
+	align-items: center;
+}
+
+c-dropdown {
+	flex: 1;
+}
+/* #endif */
+/* end-微信小程序编译后页面有组件名的元素，特别处理--end */
+
+
+/* #ifdef MP-QQ || MP-TOUTIAO */
+// 需要做这一切额外的兼容，都是因为TX的无能
+c-icon {
+	line-height: 0;
+}
+/* #endif */
+
+/* start--头条小程序编译后页面有组件名的元素，特别处理--start */
+// 由于头条小程序不支持直接组件名形式写样式，目前只能在写组件的时候给组件加上对应的类名
+/* #ifdef MP-TOUTIAO */
+.c-td, .c-th, .c-tr {
+	flex: 1;
+	align-self: stretch;
+}
+
+.c-row, .c-col {
+	flex: 1;
+	align-self: stretch;
+}
+
+// 避免小程序线条组件因为父组件display: flex;而失效
+.c-line {
+	flex: 1;
+}
+
+.c-dropdown {
+	flex: 1;
+}
+/* #endif */
+/* end-头条小程序编译后页面有组件名的元素，特别处理--end */
+
+
+

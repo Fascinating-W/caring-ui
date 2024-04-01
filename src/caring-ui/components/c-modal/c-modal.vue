@@ -1,6 +1,7 @@
 <template>
 	<view>
 		<c-popup :zoom="zoom" mode="center" :popup="false" :z-index="uZIndex" v-model="value" :length="width"
+		:filter="filter"
 		 :mask-close-able="maskCloseAble" :rounded="rounded" @close="popupClose" :negative-top="negativeTop">
 			<view class="c-model">
 				<view v-if="showTitle" class="c-model__title line-1" :style="[titleStyle]">{{ title }}</view>
@@ -33,12 +34,13 @@
 </template>
 
 <script>
-import {value, zIndex} from '../../libs/props/common.js'
+import {value, zIndex,filter} from '../../libs/props/common.js'
 	export default {
 		name: 'c-modal',
 		props: {
 			value,
 			zIndex,
+			filter,
 			// 标题
 			title: {
 				type: [String],

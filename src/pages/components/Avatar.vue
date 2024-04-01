@@ -1,27 +1,42 @@
+<!--
+ * @Author: Wanko
+ * @Date: 2024-03-07 16:14:47
+ * @LastEditors: Wanko
+ * @LastEditTime: 2024-04-01 16:10:58
+ * @Description: 
+-->
 <template>
   <div class="p">
     <c-section>基本使用</c-section>
     <div class="p">
-      <c-avatar src="https://www.wanko.top/public/be77bd5a59a4330637ca90200.jpg" showSex></c-avatar>
+      <c-avatar
+        src="https://www.wanko.top/public/be77bd5a59a4330637ca90200.jpg"
+        showSex
+      ></c-avatar>
     </div>
     <c-section>展示性别sex</c-section>
     <div class="p">
-      <c-avatar src="https://www.wanko.top/public/be77bd5a59a4330637ca90200.jpg" sex></c-avatar>
+      <c-avatar
+        src="https://www.wanko.top/public/be77bd5a59a4330637ca90200.jpg"
+        sex
+      ></c-avatar>
     </div>
     <c-section>展示等级level</c-section>
     <div class="p">
-      <c-avatar src="https://www.wanko.top/public/be77bd5a59a4330637ca90200.jpg" level></c-avatar>
+      <c-avatar
+        src="https://www.wanko.top/public/be77bd5a59a4330637ca90200.jpg"
+        level
+      ></c-avatar>
     </div>
-    <u-avatar src="https://www.wanko.top/public/be77bd5a59a4330637ca90200.jpg" showSex></u-avatar>
+    <u-avatar
+      src="https://www.wanko.top/public/be77bd5a59a4330637ca90200.jpg"
+      showSex
+    ></u-avatar>
   </div>
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

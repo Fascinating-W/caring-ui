@@ -27,7 +27,7 @@
       >
         <div class="p">
           <c-cell-group>
-            <c-cell-item
+            <c-cell
               :title="j.title"
               :key="jdx"
               v-for="(j, jdx) in i.list"

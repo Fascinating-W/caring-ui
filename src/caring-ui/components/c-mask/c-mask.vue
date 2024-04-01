@@ -2,13 +2,13 @@
  * @Author: Wanko
  * @Date: 2024-02-04 10:44:53
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-19 15:36:59
+ * @LastEditTime: 2024-04-01 17:48:58
  * @Description: 
 -->
 <template>
   <div
     class="c-mask"
-    :class="{ 'c-mask-zoom': zoom, 'c-mask-filter': filter}"
+    :class="[{ 'c-mask-zoom': zoom, 'c-mask-filter': filter},customClass]"
     :style="[maskStyle, zoomStyle]"
     @tap="onClick"
     @touchmove.stop.prevent="() => {}"
@@ -23,9 +23,11 @@ import {
   value,
   zIndex,
   customStyle,
+  customClass,
   maskClickAble,
   duration,
-  zoom
+  zoom,
+  filter
 } from '../../libs/props/common.js'
 export default {
   props: {
@@ -35,10 +37,8 @@ export default {
     duration,
     maskClickAble,
     zoom,
-    filter: {
-      type: Boolean,
-      default: true
-    }
+    customClass,
+    filter
   },
   data() {
     return {

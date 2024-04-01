@@ -50,6 +50,10 @@ export default [
     groupName: '表单组件',
     list: [
       {
+        path: '/pages/components/Form',
+        title: 'Form 表单'
+      },
+      {
         path: '/pages/components/Input',
         title: 'Input 输入框'
       },
@@ -80,6 +84,30 @@ export default [
       {
         path: '/pages/components/Checkbox',
         title: 'Checkbox 复选框'
+      },
+      {
+        path: '/pages/components/VerifyCode',
+        title: 'VerifyCode 验证码倒计时'
+      },
+      {
+        path: '/pages/components/NumberBox',
+        title: 'NumberBox 步进器'
+      },
+      {
+        path: '/pages/components/Upload',
+        title: 'Upload 上传'
+      },
+      {
+        path: '/pages/components/Progress',
+        title: 'Progress 进度条'
+      },
+      {
+        path: '/pages/components/Calendar',
+        title: 'Calendar 日历'
+      },
+      {
+        path: '/pages/components/Keyboard',
+        title: 'Keyboard 键盘'
       }
     ]
   },
@@ -224,6 +252,14 @@ export default [
       {
         path: '/pages/components/LoadingDot',
         title: 'LoadingDot 加载点'
+      },
+      {
+        path: '/pages/components/ReadMore',
+        title: 'ReadMore 展开阅读更多'
+      },
+      {
+        path: '/pages/components/MessageInput',
+        title: 'MessageInput 验证码输入'
       }
     ]
   }

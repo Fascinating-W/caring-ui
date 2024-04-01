@@ -1,82 +1,40 @@
 <template>
   <view class="p">
-    <div>
-      <u-icon name="photo" color="error"></u-icon>
-      <u-icon name="level" show-decimal-icon size="50"></u-icon>
-      <u-icon
-        name="level"
-        show-decimal-icon
-        size="50"
-        color="pink"
-        inactiveColor="green"
-      ></u-icon>
-    </div>
-    <view class="text-24">
-      <div hover-class="bg-red text-blue">
-        <u-icon name="photo" label="图标文字"></u-icon>
-      </div>
-      <div>
-        <u-icon name="photo" label="photo"></u-icon>
-        <u-icon
-          name="photo"
-          label="photo"
-          color="pink"
-          :customStyle="{
-            color: 'yellow'
-          }"
-        ></u-icon>
-        <u-icon
-          name="photo"
-          label="photo"
-          marginLeft="10"
-          labelSize="16"
-        ></u-icon>
-        <u-icon name="photo" label="photo" labelColor="red"></u-icon>
-        <u-icon name="photo" label="photo" label-pos="top"></u-icon>
-        <u-icon name="photo" label="photo" label-pos="bottom"></u-icon>
-        <u-icon name="photo" label="photo" label-pos="left"></u-icon>
-      </div>
-      <u-icon
-        name="https://www.wanko.top/public/be77bd5a59a4330637ca90200.jpg"
-        @click="onClick"
-      ></u-icon>
-    </view>
-    <c-line />
-    <u-icon name="photo" />
+    <c-section customClass="my">基本使用</c-section>
     <c-icon name="photo" />
+    <c-section customClass="my">设置颜色color，支持主题色</c-section>
     <c-icon name="photo" color="primary" />
     <c-icon name="photo" color="red" />
+    <c-section customClass="my">设置大小size</c-section>
+    <c-icon name="photo" color="green" size="30" />
+    <c-section customClass="my">自定义customClass</c-section>
+    <c-icon name="photo" customClass="text-red text-h1" />
+    <c-icon name="photo" customClass="text-green text-h2" />
+    <c-section customClass="my">自定义customStyle</c-section>
+    <c-icon
+      name="photo"
+      :customStyle="{ color: 'yellow', 'font-size': '20px' }"
+    />
+    <c-icon name="photo" :customStyle="{ color: 'pink', fontSize: '40px' }" />
+
+    <c-section customClass="my">图片icon</c-section>
+    <c-icon
+      name="https://www.wanko.top/public/be77bd5a59a4330637ca90200.jpg"
+      width="40"
+      height="40"
+    ></c-icon>
+    <c-section customClass="my">设置decimal，支持主题色</c-section>
     <c-icon name="photo" decimal />
     <c-icon
       name="photo"
       color="red"
       label="文字"
       hover-class="bg-red text-blue"
-      labelColor="primary"
+      labelColor="red"
     />
-    <c-icon name="photo" color="red" size="20" />
-    <c-icon
-      name="photo"
-      :customStyle="{ color: 'yellow', 'font-size': '20px' }"
-    />
-    <c-icon name="photo" :customStyle="{ color: 'pink', fontSize: '40px' }" />
-    <c-icon name="photo" customClass="text-red text-h1" />
-    <c-icon name="photo" customClass="text-green text-h2" />
-    <c-icon
-      name="https://www.wanko.top/public/be77bd5a59a4330637ca90200.jpg"
-    ></c-icon>
-    <c-icon
-      name="https://www.wanko.top/public/be77bd5a59a4330637ca90200.jpg"
-      size="40"
-    ></c-icon>
-    <c-icon
-      name="https://www.wanko.top/public/be77bd5a59a4330637ca90200.jpg"
-      width="40"
-      height="40"
-    ></c-icon>
-
-    <!-- <c-icon name="send" custom-prefix="custom-icon"/> -->
-    <!-- <c-icon name="level"/> -->
+    <c-section customClass="my">自定义图标</c-section>
+    <c-icon name="send" custom-prefix="custom-icon" />
+    <c-section customClass="my">所有图标</c-section>
     <view class="border-l border-t flex-wrap">
       <view
         v-for="(i, index) in iconList"

@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-03-01 17:39:35
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-01 18:00:37
+ * @LastEditTime: 2024-03-29 16:17:59
  * @Description: 
 -->
 <template>
@@ -10,7 +10,7 @@
     <view class="c-cell-title" v-if="title" :style="[titleStyle]">
       {{ title }}
     </view>
-    <view class="c-cell-item-box" :class="{ 'border-b border-t': border }">
+    <view class="c-cell-box" :class="{ 'border-b border-t': border }">
       <slot />
     </view>
 
@@ -56,7 +56,7 @@ export default {
   text-align: left;
   color: $c-tips;
 }
-.c-cell-item-box {
+.c-cell-box {
   background-color: #ffffff;
 }
 </style>

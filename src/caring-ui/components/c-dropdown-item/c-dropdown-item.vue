@@ -6,12 +6,12 @@
 			}">
 				<view class="c-dropdown-item__options">
 					<c-cell-group>
-						<c-cell-item @click="cellClick(item.value)" :arrow="false" :title="item.label" v-for="(item, index) in options"
+						<c-cell @click="cellClick(item.value)" :arrow="false" :title="item.label" v-for="(item, index) in options"
 						 :key="index" :title-style="{
 							color: value == item.value ? activeColor : inactiveColor
 						}">
 							<c-icon v-if="value == item.value" name="checkbox-mark" :color="activeColor" size="16"></c-icon>
-						</c-cell-item>
+						</c-cell>
 					</c-cell-group>
 				</view>
 			</scroll-view>

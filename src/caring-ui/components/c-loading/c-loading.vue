@@ -1,17 +1,7 @@
 <template>
-  <view class="inline-block" v-show="show">
-    <view
-      class="c-loading-circle"
-      :style="[cricleStyle]"
-      v-if="!flower"
-    ></view>
-    <view
-      class="c-loading-flower"
-      :style="[flowerStyle]"
-      v-if="flower"
-    >
-    </view>
-  </view>
+  <view v-if="show" :class="!flower ? 'c-loading-circle' : 'c-loading-flower'" :style="[cricleStyle]">
+	</view>
+  
 </template>
 
 <script>
@@ -24,7 +14,7 @@ export default {
     color: {
       type: String,
       // c8c9cc
-      default: uni.$c.color.disable
+      default: uni.$c.color.primary
     },
     // 加载图标的大小，单位rpx
     size: {

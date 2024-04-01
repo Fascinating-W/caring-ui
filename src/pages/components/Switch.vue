@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-03-18 10:51:23
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-18 11:34:18
+ * @LastEditTime: 2024-04-01 18:42:54
  * @Description: 
 -->
 <template>
@@ -18,7 +18,8 @@
     </div>
      <c-section>loading</c-section>
     <div class="p">
-      <c-switch v-model="checked" loading></c-switch>
+      <c-switch v-model="checked3" loading></c-switch>
+      <u-switch v-model="checked3" loading></u-switch>
     </div>
      <c-section>主题颜色</c-section>
     <div class="p">
@@ -32,7 +33,8 @@ export default {
   data() {
     return {
       checked: false,
-      checked1: true
+      checked1: true,
+      checked3: false,
     }
   },
   methods: {

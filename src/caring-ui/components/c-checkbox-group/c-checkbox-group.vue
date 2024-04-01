@@ -1,3 +1,10 @@
+<!--
+ * @Author: Wanko
+ * @Date: 2024-03-20 17:09:18
+ * @LastEditors: Wanko
+ * @LastEditTime: 2024-03-21 15:28:17
+ * @Description: 
+-->
 <template>
 	<view class="c-checkbox-group c-clearfix">
 		<slot></slot>

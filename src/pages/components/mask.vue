@@ -2,22 +2,26 @@
  * @Author: Wanko
  * @Date: 2024-02-04 10:29:29
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-19 15:32:04
- * @Description: 
+ * @LastEditTime: 2024-04-01 15:58:26
+ * @Description: ✅
 -->
 <template>
   <div class="p">
     <c-section>基本使用</c-section>
     <div class="p">
       <button @click="showMask = true">打开mask</button>
-      <c-mask v-model="showMask" filter/>
+      <c-mask v-model="showMask"/>
+    </div>
+    <c-section>高斯模糊遮罩</c-section>
+    <div class="p">
+      <button @click="showMask3 = true">打开mask</button>
+      <c-mask v-model="showMask3" filter />
     </div>
     <c-section>设置自定义背景色</c-section>
     <div class="p">
-      <button @click="showMask1 = true" >打开mask</button>
+      <button @click="showMask1 = true">打开mask</button>
       <c-mask
         v-model="showMask1"
-        filter
         :customStyle="{ background: 'rgba(0, 0, 0, 0.2)' }"
       />
     </div>
@@ -39,7 +43,8 @@ export default {
     return {
       showMask: false,
       showMask1: false,
-      showMask2: false
+      showMask2: false,
+      showMask3: false
     }
   },
   methods: {

@@ -44,7 +44,7 @@ export default {
     // 开关尺寸，单位px
     size: {
       type: [Number, String],
-      default: 20
+      default: 25
     },
     // 打开时的背景颜色
     activeColor: {
@@ -90,7 +90,7 @@ export default {
       return style
     },
     loadingColor() {
-      return this.value ? this.activeColor : null
+      return this.value ? this.activeColor : '#c8c9cc'
     }
   },
   methods: {
@@ -152,6 +152,7 @@ export default {
 
 .c-switch__loading {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
