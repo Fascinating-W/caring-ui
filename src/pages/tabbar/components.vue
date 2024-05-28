@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-04-06 10:45:37
  * @LastEditors: Wanko
- * @LastEditTime: 2024-04-01 18:34:57
+ * @LastEditTime: 2024-05-11 19:57:35
  * @Description: 
 -->
 <template>
@@ -40,6 +40,8 @@
         </div>
       </c-sticky>
     </div>
+    <button @click="showModal">modal</button>
+
     <div class="relative p">
       <template v-if="key">
         <c-cell
@@ -116,6 +118,9 @@ export default {
     }
   },
   onLoad() {
+
+    console.log(this.$c.sys(), '---')
+
     let height = uni.getSystemInfoSync().platform == 'ios' ? 44 : 48
     this.maxHeight = uni.getSystemInfoSync().statusBarHeight + height
     // #ifdef MP-WEIXIN
@@ -171,8 +176,10 @@ export default {
     clickImg() {
       console.log('1111')
     },
-    modal() {
-      this.$c.showModal('111111')
+    showModal() {
+      this.$c.toast('1111111111111111111111111111111').then(() => {
+        console.log('调用成功')
+      })
     }
   }
 }

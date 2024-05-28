@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-03-02 11:47:45
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-16 16:04:29
+ * @LastEditTime: 2024-05-28 17:52:21
  * @Description: 
 -->
 <template>
@@ -53,7 +53,13 @@
 
     <c-section>自定义customStyle、customClass</c-section>
     <div class="p">
-      <c-button primary round ripple :customStyle="{'background':'purple'}">主要按钮</c-button>
+      <c-button
+        primary
+        round
+        ripple
+        :customStyle="{ background: 'purple', width: '150px', height: '50px' }"
+        >主要按钮</c-button
+      >
       <c-button primary round ripple customClass="my-button">主要按钮</c-button>
     </div>
     <c-section>设置loading</c-section>

@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-04-06 10:46:06
  * @LastEditors: Wanko
- * @LastEditTime: 2024-04-01 15:48:46
+ * @LastEditTime: 2024-05-09 17:34:27
  * @Description: ✅
 -->
 <template>
@@ -10,7 +10,7 @@
     <c-section title="基础使用" customClass="my" />
     <c-line />
     <c-gap />
-    <c-line hairLine />
+    <c-line :hairline="false" />
     <c-section title="设置颜色color" customClass="my" />
     <c-line color="primary" />
     <c-section title="设置绝对长度length" customClass="my" />

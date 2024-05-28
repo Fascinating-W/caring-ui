@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-10-20 16:38:18
  * @LastEditors: Wanko
- * @LastEditTime: 2024-04-01 15:42:42
+ * @LastEditTime: 2024-05-09 17:34:29
  * @Description: 
 -->
 <template>
@@ -28,7 +28,7 @@ export default {
       type: Boolean,
       default: false
     },
-    hairLine: {
+    hairline: {
       type: Boolean,
       default: true
     },
@@ -56,7 +56,7 @@ export default {
           style.borderBottomStyle = 'solid'
         }
         style.width = this.$c.addUnit(this.length)
-        if (this.hairLine) style.transform = 'scaleY(0.5)'
+        if (this.hairline) style.transform = 'scaleY(0.5)'
       }
 
       style.borderColor = calcColor(this.color)

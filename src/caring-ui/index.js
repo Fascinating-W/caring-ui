@@ -2,12 +2,12 @@
  * @Author: Wanko
  * @Date: 2022-04-06 10:43:39
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-15 13:56:18
+ * @LastEditTime: 2024-05-11 17:49:07
  * @Description:
  */
 import route from 'caring-route'
 import utils from 'caring-utils'
-import uniApi from 'caring-uni'
+import uniApi from '../caring-uni'
 import request from 'caring-request'
 import index from './libs/function/index.js'
 import config from './libs/config'

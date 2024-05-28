@@ -172,7 +172,7 @@ export default {
   methods: {
     handleClick(item) {
       this.$c
-        .showModal({
+        .modal({
           title: item.color,
           content: item.name,
           confirmColor: item.color

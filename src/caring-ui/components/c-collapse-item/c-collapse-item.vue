@@ -115,9 +115,7 @@ export default {
   methods: {
     // 异步获取内容，或者动态修改了内容时，需要重新初始化
     init() {
-      console.log(this.$c.guid());
       this.parent = this.$c.$parent.call(this, 'c-collapse')
-      console.log(this.parent, '----')
       if (this.parent) {
         this.nameSync = this.name ? this.name : this.parent.childrens.length
         // 不存在时才添加本实例

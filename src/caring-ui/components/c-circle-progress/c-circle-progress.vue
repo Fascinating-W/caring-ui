@@ -1,5 +1,5 @@
 <template>
-	<!-- <view
+	<view
 		class="c-circle-progress"
 		:style="{
 			width: widthPx + 'px',
@@ -26,7 +26,7 @@
 			}"
 		></canvas>
 		<slot></slot>
-	</view> -->
+	</view>
 </template>
 
 <script>

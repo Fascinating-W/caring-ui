@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-03-21 18:22:36
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-23 12:45:45
+ * @LastEditTime: 2024-05-10 18:42:02
  * @Description: 
 -->
 <template>
@@ -22,10 +22,10 @@
     </div>
     <c-section>环形进度条</c-section>
     <div class="p">
-      <!-- <c-circle-progress :percent="80"> </c-circle-progress>
+      <c-circle-progress :percent="80"> </c-circle-progress>
       <c-circle-progress :percent="80" primary> </c-circle-progress>
       <c-circle-progress :percent="80" error> </c-circle-progress>
-      <c-circle-progress primary :percent="30" duration="2000"></c-circle-progress> -->
+      <c-circle-progress primary :percent="30" duration="2000"></c-circle-progress>
     </div>
   </div>
 </template>

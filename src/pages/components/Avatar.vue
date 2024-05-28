@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-03-07 16:14:47
  * @LastEditors: Wanko
- * @LastEditTime: 2024-04-01 16:10:58
+ * @LastEditTime: 2024-04-30 10:32:45
  * @Description: 
 -->
 <template>
@@ -28,10 +28,6 @@
         level
       ></c-avatar>
     </div>
-    <u-avatar
-      src="https://www.wanko.top/public/be77bd5a59a4330637ca90200.jpg"
-      showSex
-    ></u-avatar>
   </div>
 </template>
 

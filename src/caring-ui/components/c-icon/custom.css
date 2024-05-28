@@ -1,6 +1,6 @@
 @font-face {
   font-family: "custom-icon"; /* Project id 4444636 */
-  src: url('iconfont.woff2?t=1708933734447') format('woff2');
+  src: url('iconfont.woff2?t=1716621725521') format('woff2'),
 }
 
 .custom-icon {
@@ -9,6 +9,26 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.custom-icon-copy:before {
+  content: "\e8b0";
+}
+
+.custom-icon-collection-fill:before {
+  content: "\e6ea";
+}
+
+.custom-icon-collection:before {
+  content: "\e6eb";
+}
+
+.custom-icon-like-fill:before {
+  content: "\e707";
+}
+
+.custom-icon-like:before {
+  content: "\e708";
 }
 
 .custom-icon-send:before {

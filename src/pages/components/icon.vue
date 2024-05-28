@@ -33,7 +33,14 @@
       labelColor="red"
     />
     <c-section customClass="my">自定义图标</c-section>
+    <div>
     <c-icon name="send" custom-prefix="custom-icon" />
+    <c-icon name="copy" custom-prefix="custom-icon" />
+    <c-icon name="like" custom-prefix="custom-icon" />
+    <c-icon name="collection" custom-prefix="custom-icon" />
+    <c-icon name="like-fill" custom-prefix="custom-icon" />
+    <c-icon name="collection-fill" custom-prefix="custom-icon" />
+    </div>
     <c-section customClass="my">所有图标</c-section>
     <view class="border-l border-t flex-wrap">
       <view

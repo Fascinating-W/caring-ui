@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-10-24 15:42:10
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-02 17:58:03
+ * @LastEditTime: 2024-05-11 17:47:14
  * @Description: 
 -->
 <template>
@@ -31,7 +31,6 @@ export default {
   },
   computed: {
     gapStyle() {
-      console.log(this.width);
       return {
         backgroundColor: calcColor(this.color),
         height: this.width ? this.$c.addUnit(0) : this.$c.addUnit(this.height),

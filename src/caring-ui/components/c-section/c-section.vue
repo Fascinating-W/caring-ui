@@ -44,11 +44,12 @@
 
 <script>
 import { calcColor } from '../../libs/helper/utils.js'
-import {customClass, customStyle} from '../../libs/props/common.js'
+import { customClass, customStyle } from '../../libs/props/common.js'
 export default {
   name: 'c-section',
   props: {
-    customClass, 
+    
+    customClass,
     customStyle,
     title: {
       type: String,
