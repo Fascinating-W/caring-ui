@@ -2,10 +2,12 @@
  * @Author: Wanko
  * @Date: 2022-03-25 21:23:51
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-15 11:14:47
+ * @LastEditTime: 2024-05-29 17:36:37
  * @Description: 
 -->
 <script>
+import {isEmail, isMobile} from 'caring-test'
+import utils from 'caring-utils'
 export default {
   onLaunch() {
     console.log('App Launch')
@@ -13,6 +15,13 @@ export default {
   },
   onShow() {
     console.log('App Show')
+    const valueArray = [1, 2,1,1,1, 2, 3, 4, 4, 5,6,7]
+
+    
+    console.log(this.$c.unique(valueArray))
+     // true
+    console.log(isEmail('123@qq.com'))
+    console.log(isMobile('138123456781111'))
   },
   onHide() {
     console.log('App Hide')

@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-03-21 17:15:17
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-21 17:47:47
+ * @LastEditTime: 2024-05-29 16:35:08
  * @Description: 
 -->
 <template>
@@ -139,7 +139,7 @@
 				if (v1 == '') return;
 				let value = 0;
 				// 首先判断是否数值，并且在min和max之间，如果不是，使用原来值
-				let tmp = this.$c.test.number(v1);
+				let tmp = this.$c.isNumber(v1);
 				if (tmp && v1 >= this.min && v1 <= this.max) value = v1;
 				else value = v2;
 				// 判断是否只能输入大于等于0的整数

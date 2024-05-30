@@ -10,10 +10,11 @@
   "author": "风度万人迷",
   "license": "ISC",
   "dependencies": {
-    "caring-css": "^0.2.4",
+    "caring-css": "^0.3.0",
     "caring-request": "^1.0.3",
-    "caring-route": "^1.0.0",
+    "caring-route": "^1.0.2",
+    "caring-test": "^0.1.1",
     "caring-uni": "^1.0.1",
-    "caring-utils": "^0.0.1"
+    "caring-utils": "^1.0.5"
   }
 }

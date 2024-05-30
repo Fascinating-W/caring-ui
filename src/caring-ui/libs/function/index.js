@@ -1,4 +1,4 @@
-import {test} from 'caring-utils'
+import { isNumber, isEmpty } from 'caring-test'
 
 
 /**
@@ -6,7 +6,7 @@ import {test} from 'caring-utils'
  * 如果用户传递了"xxpx"或者"xxrpx"，取出其数值部分，如果是"xxxrpx"还需要用过uni.upx2px进行转换
  */
 const getPx = (value, unit = false) => {
-  if (test.number(value)) {
+  if (isNumber(value)) {
     return unit ? `${value}px` : value
   }
   // 如果带有rpx，先取出其数值部分，再转为px值
@@ -44,7 +44,7 @@ function $parent (name = undefined) {
  */
 function addStyle (customStyle, target = 'object') {
   // 字符串转字符串，对象转对象情形，直接返回
-  if (test.empty(customStyle) || typeof (customStyle) === 'object' && target === 'object' || target === 'string' &&
+  if (isEmpty(customStyle) || typeof (customStyle) === 'object' && target === 'object' || target === 'string' &&
     typeof (customStyle) === 'string') {
     return customStyle
   }
@@ -80,7 +80,7 @@ function addStyle (customStyle, target = 'object') {
 function addUnit (value = 'auto', unit = 'px') {
   value = String(value)
   // 用内置验证规则中的number判断是否为数值
-  return test.number(value) ? `${value}${unit}` : value
+  return isNumber(value) ? `${value}${unit}` : value
 }
 
 

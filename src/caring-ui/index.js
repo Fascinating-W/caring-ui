@@ -2,13 +2,14 @@
  * @Author: Wanko
  * @Date: 2022-04-06 10:43:39
  * @LastEditors: Wanko
- * @LastEditTime: 2024-05-11 17:49:07
+ * @LastEditTime: 2024-05-29 17:36:21
  * @Description:
  */
 import route from 'caring-route'
 import utils from 'caring-utils'
-import uniApi from '../caring-uni'
+import uniApi from 'caring-uni'
 import request from 'caring-request'
+import test from 'caring-test'
 import index from './libs/function/index.js'
 import config from './libs/config'
 // 全局mixin
@@ -23,12 +24,13 @@ import $parent from './libs/function/$parent.js'
 import './index.scss'
 
 const $c = {
-  zIndex,
+  ...test,
   ...index,
   ...utils,
+  ...uniApi,
+  zIndex,
   color,
   config,
-  ...uniApi,
   route,
   request,
   $parent
