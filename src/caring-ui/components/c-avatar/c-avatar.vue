@@ -4,24 +4,24 @@
       @error="loadError"
       :style="[imgStyle]"
       class="c-avatar__img"
-      v-if="!uText && avatar"
+      v-if="!cText && avatar"
       :src="avatar"
       :mode="imgMode"
     ></image>
     <text
       class="line-1"
-      v-else-if="uText"
+      v-else-if="cText"
       :style="{
         fontSize: '38rpx'
       }"
-      >{{ uText }}</text
+      >{{ cText }}</text
     >
     <slot v-else></slot>
     <view
       class="c-avatar__sex"
       v-if="sex"
       :class="['c-avatar__sex--' + sexIcon]"
-      :style="[uSexStyle]"
+      :style="[cSexStyle]"
     >
       <c-icon :name="sexIcon" size="10"></c-icon>
     </view>
@@ -40,7 +40,7 @@ export default {
     // 背景颜色
     bgColor: {
       type: String,
-      default: 'transparent'
+      default: '#ddd'
     },
     // 头像路径
     src: {
@@ -148,11 +148,11 @@ export default {
       return style
     },
     // 取字符串的第一个字符
-    uText() {
+    cText() {
       return String(this.text)[0]
     },
     // 性别图标的自定义样式
-    uSexStyle() {
+    cSexStyle() {
       let style = {}
       if (this.sexBgColor) style.backgroundColor = this.sexBgColor
       return style

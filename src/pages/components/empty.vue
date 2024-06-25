@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-11-21 17:17:48
  * @LastEditors: Wanko
- * @LastEditTime: 2024-03-03 15:28:30
+ * @LastEditTime: 2024-06-25 10:52:36
  * @Description: 
 -->
 <template>
@@ -11,7 +11,7 @@
     <div class="p">
       <c-empty />
     </div>
-    <c-section>设置模式</c-section>
+    <c-section>设置不同模式</c-section>
     <div class="p">
       <c-empty mode="search" />
     </div>
@@ -31,8 +31,6 @@
     <div class="p">
       <c-empty color="pink" />
     </div>
-    
-
     <!-- 修改图标和文字颜色 -->
     <c-empty mode="search" color="primary" icon-color="primary"></c-empty>
 

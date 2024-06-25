@@ -2,29 +2,27 @@
  * @Author: Wanko
  * @Date: 2022-03-25 21:23:51
  * @LastEditors: Wanko
- * @LastEditTime: 2024-05-29 17:36:37
+ * @LastEditTime: 2024-06-06 17:19:10
  * @Description: 
 -->
 <script>
 import {isEmail, isMobile} from 'caring-test'
 import utils from 'caring-utils'
+import uniApi from 'caring-uni'
+import {time, dayOfYear, now, today} from 'caring-time'
 export default {
   onLaunch() {
-    console.log('App Launch')
-    // console.log(uni.$c)
+    console.log(now())
+    console.log(today())
+    time.extend(dayOfYear)
+    console.log('今年的第几天：', time().dayOfYear())
+    console.log(uniApi)
+    console.log(isEmail('233'))
+    // console.log(this.$c.today())
   },
   onShow() {
-    console.log('App Show')
-    const valueArray = [1, 2,1,1,1, 2, 3, 4, 4, 5,6,7]
-
-    
-    console.log(this.$c.unique(valueArray))
-     // true
-    console.log(isEmail('123@qq.com'))
-    console.log(isMobile('138123456781111'))
   },
   onHide() {
-    console.log('App Hide')
   }
 }
 </script>

@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import {guid} from 'caring-utils'
+
 	export default {
 		name: "c-sticky",
 		props: {
@@ -57,7 +59,7 @@
 				fixed: false,
 				height: 'auto',
 				stickyTop: 0,
-				elClass: uni.$c.guid(),
+				elClass: guid(),
 				left: 0,
 				width: 'auto',
 			};

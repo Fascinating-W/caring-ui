@@ -43,6 +43,8 @@
 
 <script>
 import { customStyle, customClass } from '../../libs/props/common.js'
+import {guid} from 'caring-utils'
+
 export default {
   name: 'c-tabs',
   props: {
@@ -164,7 +166,7 @@ export default {
       componentWidth: 0, // 屏幕宽度，单位为px
       scrollBarLeft: 0, // 移动bar需要通过translateX()移动的距离
       parentLeft: 0, // 父元素(tabs组件)到屏幕左边的距离
-      id: uni.$c.guid(), // id值
+      id: guid(), // id值
       currentIndex: this.current,
       barFirstTimeMove: true // 滑块第一次移动时(页面刚生成时)，无需动画，否则给人怪异的感觉
     }

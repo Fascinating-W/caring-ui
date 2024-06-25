@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import {guid} from 'caring-utils'
 export default {
   name: 'c-collapse-item',
   props: {
@@ -109,7 +110,7 @@ export default {
   created() {
     this.parent = false
     // 获取u-collapse的信息，放在u-collapse是为了方便，不用每个u-collapse-item写一遍
-    this.elId = this.$c.guid()
+    this.elId = guid()
     this.isShow = this.open
   },
   methods: {

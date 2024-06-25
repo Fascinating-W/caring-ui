@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-02-04 15:12:40
  * @LastEditors: Wanko
- * @LastEditTime: 2024-04-01 17:49:26
+ * @LastEditTime: 2024-06-25 18:53:12
  * @Description: 
 -->
 <template>
@@ -31,12 +31,13 @@
       :class="[
         safeAreaInsetBottom ? 'safe-area-inset-bottom' : '',
         'c-drawer-' + mode,
-        showDrawer ? 'c-drawer-content-visible' : '',
         zoom && mode == 'center' ? 'c-animation-zoom' : ''
       ]"
-      @touchmove.stop.prevent
-      @tap.stop.prevent
-      :style="[style]"
+      @touchstart="handleTouchStart"
+      @touchmove="handleTouchMove"
+      @touchend="handleTouchEnd"
+      :style="[style, showDrawer ? drawerContentVisible : '']"
+      ref="drawer"
     >
       <view
         class="c-mode-center-box"
@@ -182,9 +183,22 @@ export default {
     negativeTop: {
       type: [String, Number],
       default: 0
+    },
+    touch: {
+      type: Boolean,
+      default: false
+    },
+    threshold: {
+      type: [String, Number],
+      default: 50
     }
   },
   computed: {
+    drawerContentVisible() {
+      return {
+        transform: `translate3D(${this.left}px, 0px, 0px) !important`
+      }
+    },
     // 根据mode的位置，设定其弹窗的宽度(mode = left|right)，或者高度(mode = top|bottom)
     style() {
       let style = {}
@@ -261,7 +275,6 @@ export default {
         return this.showDrawer && this.mask
       },
       set(val) {
-        console.log(val)
         this.showDrawer = val
       }
     }
@@ -271,12 +284,16 @@ export default {
       visibleSync: false,
       showDrawer: false,
       timer: null,
-      closeFromInner: false // value的值改变，是发生在内部还是外部
+      closeFromInner: false, // value的值改变，是发生在内部还是外部
+      startX: 0,
+      startY: 0,
+      moveX: 0,
+      moveY: 0,
+      left: 0
     }
   },
   watch: {
     value(val) {
-      console.log(val, 'val')
       if (val) {
         this.open()
       } else if (!this.closeFromInner) {
@@ -286,10 +303,40 @@ export default {
     }
   },
   mounted() {
-    console.log(this.value)
     this.value && this.open()
   },
   methods: {
+    handleTouchStart(event) {
+      this.startX = event.touches[0].clientX
+    },
+    handleTouchMove(event) {
+      this.moveX = event.touches[0].clientX - this.startX
+
+      if (this.mode === 'left' && this.moveX < 0) {
+        this.left = this.moveX
+      }
+
+      if(this.mode === 'right' && this.moveX > 0) {
+        this.left = this.moveX
+      }
+    },
+    handleTouchEnd() {
+      if (!this.touch) return
+      let threshold = +this.threshold
+      if (this.mode === 'left' && this.moveX < 0) {
+        if (Math.abs(this.moveX) > threshold) {
+          this.close()
+        }
+      } else if (this.mode === 'right' && this.moveX > 0) {
+        // 右侧弹窗从左向右滑动关闭
+        if (Math.abs(this.moveX) > threshold) {
+          this.close()
+        }
+      }
+      // 重置移动距离
+      this.moveX = 0
+      this.left = 0
+    },
     getUnitValue(val) {
       if (/(%|px|rpx|auto)$/.test(val)) return val
       else return val + 'px'
@@ -309,6 +356,13 @@ export default {
     },
     open() {
       this.change('visibleSync', 'showDrawer', true)
+      console.log('open')
+      this.$nextTick(() => {
+        this.$cGetRect('.c-drawer-content').then((res) => {
+          console.log(res)
+          this.drawerWidth = res.width
+        })
+      })
     },
     change(param1, param2, status) {
       // 如果this.popup为false，意味着为picker，actionsheet等组件调用了popup组件
@@ -449,4 +503,3 @@ export default {
   bottom: 30rpx;
 }
 </style>
-../../libs/props/common.js

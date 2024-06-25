@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import {guid} from 'caring-utils'
 export default {
   name: 'c-read-more',
   props: {
@@ -123,7 +124,7 @@ export default {
     return {
       isLongContent: false, // 是否需要隐藏一部分内容
       showMore: false, // 当前隐藏与显示的状态，true-显示，false-收起
-      elId: uni.$c.guid() // 生成唯一class
+      elId: guid() // 生成唯一class
     }
   },
   mounted() {

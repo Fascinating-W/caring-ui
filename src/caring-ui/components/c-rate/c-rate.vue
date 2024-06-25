@@ -19,8 +19,9 @@
 </template>
 
 <script>
-
+import {guid} from 'caring-utils'
 export default {
+
 	name: 'c-rate',
 	props: {
 		// 用于v-model双向绑定选中的星星数量
@@ -104,8 +105,8 @@ export default {
 	data() {
 		return {
 			// 生成一个唯一id，否则一个页面多个评分组件，会造成冲突
-			elId: uni.$c.guid(),
-			elClass: uni.$c.guid(),
+			elId: guid(),
+			elClass: guid(),
 			starBoxLeft: 0, // 评分盒子左边到屏幕左边的距离，用于滑动选择时计算距离
 			// 当前激活的星星的index，如果存在value，优先使用value，因为它可以双向绑定(1.4.5新增)
 			activeIndex: this.value,

@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2022-04-06 10:45:37
  * @LastEditors: Wanko
- * @LastEditTime: 2024-05-29 15:31:00
+ * @LastEditTime: 2024-06-25 10:51:30
  * @Description: 
 -->
 <template>
@@ -91,12 +91,13 @@
 
 <script>
 import list from './list.js'
+import time from 'caring-time'
+
 let menuButtonInfo = {}
 // 如果是小程序，获取右上角胶囊的尺寸信息，避免导航栏右侧内容与胶囊重叠(支付宝小程序非本API，尚未兼容)
 // #ifdef MP-WEIXIN || MP-BAIDU || MP-TOUTIAO || MP-QQ
 menuButtonInfo = uni.getMenuButtonBoundingClientRect()
 // #endif
-
 export default {
   data() {
     return {
@@ -117,7 +118,6 @@ export default {
     }
   },
   onLoad() {
-    console.log(this.$c.sys(), '---')
 
     let height = uni.getSystemInfoSync().platform == 'ios' ? 44 : 48
     this.maxHeight = uni.getSystemInfoSync().statusBarHeight + height
@@ -148,7 +148,6 @@ export default {
       // 根据下拉距离，计算导航栏背景颜色
       const width = menuButtonInfo.left - 20
       const initalWidh = uni.getSystemInfoSync().windowWidth - 20
-      console.log(width, 'width')
       const scrollTopRatio = this.scrollTop / this.maxHeight // 滚动距离的比例
 
       // #ifdef MP-WEIXIN

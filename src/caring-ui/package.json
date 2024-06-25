@@ -14,7 +14,8 @@
     "caring-request": "^1.0.3",
     "caring-route": "^1.0.2",
     "caring-test": "^0.1.1",
+    "caring-time": "^0.3.0",
     "caring-uni": "^1.0.1",
-    "caring-utils": "^1.0.5"
+    "caring-utils": "^1.0.7"
   }
 }
