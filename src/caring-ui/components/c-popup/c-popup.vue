@@ -2,7 +2,7 @@
  * @Author: Wanko
  * @Date: 2024-02-04 15:12:40
  * @LastEditors: Wanko
- * @LastEditTime: 2024-06-25 18:53:12
+ * @LastEditTime: 2024-06-25 19:23:00
  * @Description: 
 -->
 <template>
@@ -34,7 +34,7 @@
         zoom && mode == 'center' ? 'c-animation-zoom' : ''
       ]"
       @touchstart="handleTouchStart"
-      @touchmove="handleTouchMove"
+      @touchmove.stop="handleTouchMove"
       @touchend="handleTouchEnd"
       :style="[style, showDrawer ? drawerContentVisible : '']"
       ref="drawer"
@@ -356,13 +356,6 @@ export default {
     },
     open() {
       this.change('visibleSync', 'showDrawer', true)
-      console.log('open')
-      this.$nextTick(() => {
-        this.$cGetRect('.c-drawer-content').then((res) => {
-          console.log(res)
-          this.drawerWidth = res.width
-        })
-      })
     },
     change(param1, param2, status) {
       // 如果this.popup为false，意味着为picker，actionsheet等组件调用了popup组件
